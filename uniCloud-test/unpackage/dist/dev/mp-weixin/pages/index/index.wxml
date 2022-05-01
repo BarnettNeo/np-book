@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="{{userInfo.avatarUrl}}"></image><view class="text-area"><text class="title">{{userInfo.nickName}}</text></view><button data-event-opts="{{[['tap',[['getUserInfo']]]]}}" bindtap="__e">获取用户信息</button></view>
