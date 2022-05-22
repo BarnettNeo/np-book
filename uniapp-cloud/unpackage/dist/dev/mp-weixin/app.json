@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/me/index",
+    "pages/books/books",
+    "pages/index/index",
+    "pages/map/map",
+    "pages/createbookshelf/createbookshelf",
+    "pages/bookshelf/bookshelf",
+    "pages/bookdetail/bookdetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "selectedColor": "00aaff",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "static/tabicons/me_0.png",
+        "selectedIconPath": "static/tabicons/me_1.png",
+        "pagePath": "pages/me/index",
+        "text": "我"
+      },
+      {
+        "iconPath": "static/tabicons/forum_0.png",
+        "selectedIconPath": "static/tabicons/forum_1.png",
+        "pagePath": "pages/books/books",
+        "text": "书库"
+      },
+      {
+        "iconPath": "static/tabicons/map_0.png",
+        "selectedIconPath": "static/tabicons/map_1.png",
+        "pagePath": "pages/map/map",
+        "text": "地图"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请允许我们访问您的位置信息以推荐附近的书友"
+    }
+  },
+  "usingComponents": {}
+}

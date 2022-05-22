@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "pubnaviagtionbar": "/components/pubnaviagtionbar"
+  },
+  "component": true
+}

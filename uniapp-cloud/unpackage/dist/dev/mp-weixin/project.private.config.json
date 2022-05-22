@@ -1,0 +1,24 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "bookshelf",
+          "pathName": "pages/bookshelf/bookshelf",
+          "query": "id=627a3473f4194f0001093218",
+          "scene": null,
+          "launchMode": "default"
+        }
+      ]
+    }
+  }
+}
