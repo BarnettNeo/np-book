@@ -18,6 +18,7 @@
     "backgroundColor": "#fff"
   },
   "tabBar": {
+    "selectedColor": "#00aaff",
     "list": [
       {
         "iconPath": "static/tabicons/me_0.png",

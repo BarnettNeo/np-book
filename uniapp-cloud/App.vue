@@ -1584,7 +1584,7 @@
 		line-height: 44px;
 		height: 44px;
 		border-radius: 22px;
-		background-color: #000000;
+		background-color: #00aaff;
 		color: #fff;
 	}
 	

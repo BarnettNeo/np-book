@@ -8,15 +8,16 @@
 					<bookcell :data="item"></bookcell>
 					<view v-if="isEditing" @click="btnDeleteBook" :data-id="item._id" style='font-size:10px;text-align:center;margin-top: 10px;'><text style="padding:5px 10px;background:#f3433e;color:#fff;border-radius:5px;">编辑</text></view>
 				</view>
+				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了哥</view>
 			</view>
 		</view>
 		<view v-if="shelfInfo.isowner" slot="tabSection" style="padding:10px;">
-			<view v-if="!isEditing" style="background-color: #000;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
+			<view v-if="!isEditing" style="background-color: #00aaff;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
 				<view @click="showShareMenu= true" class="iconfont icon-share" style="width:50px;height: 50px;text-align: center;"></view>
 				<view @click="btnScan" style="flex:1;text-align: center;">添加图书</view>
 				<view @click="btnEnterEditing" class="iconfont icon-apps" style="width:50px;height: 50px;text-align: center;"></view>
 			</view>
-			<view v-else style="background-color: #000;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
+			<view v-else style="background-color: #00aaff;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
 				<view></view>
 				<view @click="btnExitEditing" style="flex:1;text-align: center;">退出编辑模式</view>
 				<view></view>
@@ -46,6 +47,7 @@
 				shelfid:null,
 				canloadmore:true,
 				showShareMenu:false,
+				isBooksLen:false,
 				books:[]
 			}
 		},
@@ -116,6 +118,7 @@
 									content: '无图书分享',
 									showCancel: false
 								});
+								return
 							}
 							
 							uni.getImageInfo({
@@ -222,6 +225,7 @@
 						
 						if(!start)this.books = res.result;
 						else this.books = this.books.concat(res.result);
+						if(this.books<1) this.isBooksLen = true;
 					}
 				})
 			},

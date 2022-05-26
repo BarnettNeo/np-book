@@ -1,4 +1,5 @@
 'use strict';
+// 图书
 const {verifyToken} = require('wx-common')
 
 exports.main = async (event, context) => {
@@ -83,16 +84,7 @@ exports.main = async (event, context) => {
 		.orderBy("updatetime","desc")
 		.limit(12)
 		.get();
-		
-		// const $ = db.command.aggregate;
-		// dbRes = await db.collection('books').aggregate().group({
-		// 	"_id":"$isbnid",
-		// 	"isbnid":$.last("$isbnid"),
-		// 	"title":$.last("$title"),
-		// 	"cover_url":$.last("$cover_url")
-		// }).sort({
-		// 	"_id":-1
-		// }).match(option).limit(9).end();
+
 		
 	}else if(action=="get"){
 		dbRes = await db.collection("isbnlib").where({

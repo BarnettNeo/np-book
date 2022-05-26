@@ -49,6 +49,7 @@
 		},
 		methods:{
 			onClickItem:function(index){
+				console.log(index)
 				var item=this.tabs.pages[index];
 				this.$emit("onTabClick",index);
 				if(!item.actived){

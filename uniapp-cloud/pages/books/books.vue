@@ -21,6 +21,7 @@
 				<view v-for="item in books" style="width:33.3%;padding:10px;margin-bottom: 10px;">
 					<bookcell :data="item"></bookcell>
 				</view>
+				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了哥</view>
 			</view>
 		</view>
 		<!-- <view slot="tabSection">
@@ -43,7 +44,8 @@
 			return {
 				books:[],
 				keyword:"",
-				canloadmore:true
+				canloadmore:true,
+				isBooksLen:false
 			}
 		},
 		onLoad() {
@@ -71,6 +73,7 @@
 						
 						if(start)this.books = this.books.concat(res.result);
 						else this.books = res.result;
+						if(this.books<1) this.isBooksLen = true;
 					}
 				});
 			}

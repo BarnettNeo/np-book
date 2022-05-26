@@ -45,7 +45,7 @@
 			},
 			bottomlineColor:{
 				type:String,
-				default:"#F2F2F2"
+				default:"#00aaff"
 			}
 		},
 		methods:{

@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/bookdetail/bookdetail"],{
 
 /***/ 63:
-/*!*****************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/main.js?{"page":"pages%2Fbookdetail%2Fbookdetail"} ***!
-  \*****************************************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/main.js?{"page":"pages%2Fbookdetail%2Fbookdetail"} ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_bookdetail.default);
 /***/ }),
 
 /***/ 64:
-/*!**********************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/bookdetail/bookdetail.vue ***!
-  \**********************************************************************************************/
+/*!********************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/bookdetail/bookdetail.vue ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56,9 +56,9 @@ component.options.__file = "pages/bookdetail/bookdetail.vue"
 /***/ }),
 
 /***/ 65:
-/*!*****************************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/bookdetail/bookdetail.vue?vue&type=template&id=990c41f4& ***!
-  \*****************************************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/bookdetail/bookdetail.vue?vue&type=template&id=990c41f4& ***!
+  \***************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -78,9 +78,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 66:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/bookdetail/bookdetail.vue?vue&type=template&id=990c41f4& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/github-me/uniapp-project/uniapp-cloud/pages/bookdetail/bookdetail.vue?vue&type=template&id=990c41f4& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -105,9 +105,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 67:
-/*!***********************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/bookdetail/bookdetail.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/bookdetail/bookdetail.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -121,9 +121,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 68:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/bookdetail/bookdetail.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/github-me/uniapp-project/uniapp-cloud/pages/bookdetail/bookdetail.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -142,7 +142,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/cloudApi.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 70));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/cloudApi.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {

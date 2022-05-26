@@ -32,7 +32,8 @@
 		},
 		mounted() {
 			this.safeArea=sysinfo.safeArea;
-		}
+		},
+		
 	}
 </script>
 

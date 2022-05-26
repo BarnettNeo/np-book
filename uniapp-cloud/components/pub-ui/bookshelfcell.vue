@@ -40,7 +40,7 @@
 							})
 						}else if(res.tapIndex==1){
 							uni.showModal({
-								content:"确定要删除此书房吗？",
+								content:"哥请慎重啊,确定删除吗?",
 								success: (res) => {
 									if(res.confirm){
 										cloudApi.call({

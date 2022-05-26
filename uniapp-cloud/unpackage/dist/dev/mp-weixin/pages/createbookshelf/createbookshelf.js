@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/createbookshelf/createbookshelf"],{
 
 /***/ 49:
-/*!***************************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/main.js?{"page":"pages%2Fcreatebookshelf%2Fcreatebookshelf"} ***!
-  \***************************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/main.js?{"page":"pages%2Fcreatebookshelf%2Fcreatebookshelf"} ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_createbookshelf.default);
 /***/ }),
 
 /***/ 50:
-/*!********************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/createbookshelf/createbookshelf.vue ***!
-  \********************************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/createbookshelf/createbookshelf.vue ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56,9 +56,9 @@ component.options.__file = "pages/createbookshelf/createbookshelf.vue"
 /***/ }),
 
 /***/ 51:
-/*!***************************************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/createbookshelf/createbookshelf.vue?vue&type=template&id=34e555d2& ***!
-  \***************************************************************************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/createbookshelf/createbookshelf.vue?vue&type=template&id=34e555d2& ***!
+  \*************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -78,9 +78,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 52:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/createbookshelf/createbookshelf.vue?vue&type=template&id=34e555d2& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/github-me/uniapp-project/uniapp-cloud/pages/createbookshelf/createbookshelf.vue?vue&type=template&id=34e555d2& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -105,9 +105,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 53:
-/*!*********************************************************************************************************************************!*\
-  !*** D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/createbookshelf/createbookshelf.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************/
+/*!*******************************************************************************************************************!*\
+  !*** D:/github-me/uniapp-project/uniapp-cloud/pages/createbookshelf/createbookshelf.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -121,9 +121,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 54:
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/learn/unaipp-test/学习/uniapp-unicloud-dnms-main/dnms/pages/createbookshelf/createbookshelf.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/github-me/uniapp-project/uniapp-cloud/pages/createbookshelf/createbookshelf.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -161,7 +161,7 @@ var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/clou
 //
 //
 //
-var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 70));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { pubpage: pubpage }, data: function data() {return { title: "新建书房", _id: null, name: "", address: "选取书房所在地址", longitude: "", latitude: "" };}, onLoad: function onLoad(options) {var _this = this;
+var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { pubpage: pubpage }, data: function data() {return { title: "新建书房", _id: null, name: "", address: "选取书房所在地址", longitude: "", latitude: "" };}, onLoad: function onLoad(options) {var _this = this;
     if (options.id) {
       this.title = "修改书房";
       this._id = options.id;
