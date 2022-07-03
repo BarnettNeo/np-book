@@ -10,5 +10,5 @@
 
 // 下面示例查询uni-id-users表的所有数据
 db.collection('books').where({
-	shelfid:"60ffb9df2e5faa0001c5586e"
+	shelfid:"627a3473f4194f0001093218"
 });

@@ -3,12 +3,21 @@
 		<view slot="contentSection" style="height: 100%;">
 			<canvas id="myPoster" canvas-id="myPoster" type="2d" style="position: absolute;left:-350px;width:350px;height:750px;"></canvas>
 			<pubshare v-if="showShareMenu" @selected="onShareSelected" @dismiss="onShareDismiss"></pubshare>
+			<view class="User_info">
+				<view class="User_avatarUrl">
+					<image :src="shelfInfo.ownerinfo.avatarUrl"></image>
+				</view>
+				<view class="User_text">
+					<text class="nickName">用户：{{shelfInfo.ownerinfo.nickName}}</text>
+					<text class="address">地址：{{shelfInfo.address}}</text>
+				</view>
+			</view>
 			<view style="justify-content: start;display: flex;flex-wrap: wrap;padding-bottom: 70px;">
-				<view v-for="item in books" style="width:33.3%;padding:10px;margin-bottom: 10px;">
+				<view v-for="item in books" :key="item._id" style="width:33.3%;padding:10px;margin-bottom: 10px;">
 					<bookcell :data="item"></bookcell>
 					<view v-if="isEditing" @click="btnDeleteBook" :data-id="item._id" style='font-size:10px;text-align:center;margin-top: 10px;'><text style="padding:5px 10px;background:#f3433e;color:#fff;border-radius:5px;">编辑</text></view>
 				</view>
-				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了哥</view>
+				<view v-if="isBooksLen" ref="BooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了</view>
 			</view>
 		</view>
 		<view v-if="shelfInfo.isowner" slot="tabSection" style="padding:10px;">
@@ -222,10 +231,14 @@
 					},
 					success:(res)=>{
 						this.canloadmore = res.result.length>=9;
-						
 						if(!start)this.books = res.result;
 						else this.books = this.books.concat(res.result);
-						if(this.books<1) this.isBooksLen = true;
+						if(this.books<1){
+							this.isBooksLen = true;
+						}else{
+							this.isBooksLen = false;
+						}
+						// console.log('图书',this.books)
 					}
 				})
 			},
@@ -270,6 +283,7 @@
 			btnScan(){
 				uni.scanCode({
 					success: async (res) => {
+						// console.log(res)
 						const isbnres = await cloudApi.call({
 							name:"ISBNQuery",
 							data:{
@@ -286,6 +300,14 @@
 						})
 						
 						this.requestBookList();
+					},
+					
+					fail: (err) => {
+						console.log('扫码失败',err);
+						uni.showModal({
+							content: '扫码失败,请重新尝试',
+							showCancel: false
+						});
 					}
 				})
 			}
@@ -293,9 +315,33 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	page
 	{
 		background-color: #fff;
+	}
+	.User_info{
+		width: auto;
+		margin-top: 30rpx;
+		padding-left: 30rpx;
+		display: flex;
+		.User_avatarUrl{
+			width: 150rpx;
+			height: 150rpx;
+			image{
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.User_text{
+			margin-left: 20rpx;
+			.nickName{
+				margin: 10rpx 0;
+			}
+			text{
+				display: block;
+				font-size: 24rpx;
+			}
+		}
 	}
 </style>

@@ -18,7 +18,7 @@
 		</view>
 		<view slot="contentSection">
 			<view style="justify-content: start;display: flex;flex-wrap: wrap;padding-top: 64px;">
-				<view v-for="item in books" style="width:33.3%;padding:10px;margin-bottom: 10px;">
+				<view v-for="item in books" :key="item._id" style="width:33.3%;padding:10px;margin-bottom: 10px;">
 					<bookcell :data="item"></bookcell>
 				</view>
 				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了哥</view>

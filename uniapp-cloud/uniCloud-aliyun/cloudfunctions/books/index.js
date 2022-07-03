@@ -91,7 +91,7 @@ exports.main = async (event, context) => {
 			isbn:dbCmd.eq(event.isbn)
 		}).get();
 		
-		console.log(dbRes);
+		console.log("dbRes",dbRes);
 		
 		let bookInfo = dbRes.data[0];
 		

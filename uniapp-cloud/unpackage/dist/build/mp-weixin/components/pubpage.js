@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/pubpage"],{"00e9":function(t,n,a){"use strict";a.r(n);var o=a("3305"),e=a("740c");for(var i in e)"default"!==i&&function(t){a.d(n,t,(function(){return e[t]}))}(i);var s,u=a("f0c5"),r=Object(u["a"])(e["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],s);n["default"]=r.exports},3305:function(t,n,a){"use strict";var o;a.d(n,"b",(function(){return e})),a.d(n,"c",(function(){return i})),a.d(n,"a",(function(){return o}));var e=function(){var t=this,n=t.$createElement;t._self._c},i=[]},"740c":function(t,n,a){"use strict";a.r(n);var o=a("a240"),e=a.n(o);for(var i in o)"default"!==i&&function(t){a.d(n,t,(function(){return o[t]}))}(i);n["default"]=e.a},a240:function(t,n,a){"use strict";(function(t){Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var o=function(){a.e("components/pubnaviagtionbar").then(function(){return resolve(a("51b8"))}.bind(null,a)).catch(a.oe)},e={components:{pubnaviagtionbar:o},data:function(){return{paddingTop:0,paddingBottom:0,height:"100%",statusBarHeight:22}},props:{title:{type:String,default:""},showNavigation:{type:Boolean,default:!0},navigationHasBottomLine:{type:Boolean,default:!0},statusBackground:{type:String,default:"#fff"}},computed:{},methods:{autoPaddingTop:function(){return this.showNavigation?44+this.sysInfo.statusBarHeight:this.sysInfo.statusBarHeight},autoPaddingBottom:function(){return this.$slots.tabSection?50+(this.sysInfo.safeArea?34:0):0}},mounted:function(){this.sysInfo=t.getSystemInfoSync(),this.height=this.sysInfo.screenHeight+"px",this.paddingTop=this.autoPaddingTop(),this.paddingBottom=this.autoPaddingBottom(),this.statusBarHeight=this.sysInfo.statusBarHeight}};n.default=e}).call(this,a("543d")["default"])}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/pubpage-create-component',
+    {
+        'components/pubpage-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("00e9"))
+        })
+    },
+    [['components/pubpage-create-component']]
+]);

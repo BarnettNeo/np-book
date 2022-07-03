@@ -59,10 +59,11 @@ exports.main = async (event, context) => {
 	}else if(action=="listbybook"){
 		
 	}else if(action=="listbygeo"){
+		console.log(event.longitude, event.latitude)
 		dbRes = await db.collection('bookshelfs').field({owner:false}).where({
 			geopoint:dbCmd.geoNear({
 				geometry: new db.Geo.Point(event.longitude, event.latitude),
-				maxDistance: 5000,
+				maxDistance: 500,
 				minDistance: 0
 			})
 		})

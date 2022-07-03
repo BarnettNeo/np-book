@@ -2,11 +2,12 @@
 	<pubpage :navigationHasBottomLine="false">
 		<view slot="contentSection">
 			<view  class="User">
-				<image @click="updateUserProfile" :src="userInfo.avatarUrl" mode="widthFix"></image>
+				<image @click="updateUserProfile" :src="userInfo.avatarUrl?userInfo.avatarUrl:'/static/unlogin_avatarUrl.png'" mode="widthFix"></image>
 				<view>{{userInfo.nickName}}</view>
 				<view><text class="np-tag">点击头像同步微信信息</text></view>
-				<view v-if="!isLogin" @click="updateUserProfile" class="np-blockbutton">点击登录</view>
+				<view v-if="!isLogin" @click="updateUserProfile" class="np-blockbutton">授权登录</view>
 				<view v-if="isLogin" @click="loginUserProfile" class="np-blockbutton">个人中心</view>
+				<view v-if="isLogin" @click="logoutUserProfile" class="np-blockbutton">退出登录</view>
 			</view>
 			<view class="tips">Welcome to here！</view>
 		</view>
@@ -22,15 +23,16 @@
 			pubpage
 		},
 		data() {
+			// unlogin_avatarUrl = require('/static/unlogin_avatarUrl.png')
 			return {
 				userInfo:null,
-				isLogin:false,
+				isLogin:false
 			}
 		},
 		async onLoad(options){
 			this.userInfo = await loginUser.login();
 			console.log('登录token返回',this.userInfo)
-			if(this.userInfo){
+			if(this.userInfo.avatarUrl){
 				this.isLogin = true;
 			}
 			
@@ -62,6 +64,9 @@
 				uni.navigateTo({
 					url:"../index/index"
 				})
+			},
+			logoutUserProfile(){
+				
 			}
 		}
 	}
@@ -75,7 +80,7 @@
 			width:100px;
 			height:100px;
 			border-radius: 50px;
-			background-color: #8F8F94;
+			// background-color: #8F8F94;
 		}
 		.np-tag{
 			padding: 0 5px;

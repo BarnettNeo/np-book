@@ -51,7 +51,7 @@
 				if(e.type=="end"){
 					var latitude = e.detail.centerLocation.latitude;
 					var longitude = e.detail.centerLocation.longitude;
-					console.log(latitude,longitude)
+					// console.log(latitude,longitude)
 					
 					cloudApi.call({
 						name:"bookshelfs",

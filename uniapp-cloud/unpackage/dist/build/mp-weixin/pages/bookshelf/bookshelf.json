@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "pubpage": "/components/pubpage",
+    "bookcell": "/components/pub-ui/bookcell",
+    "pubshare": "/components/pubshare"
+  }
+}

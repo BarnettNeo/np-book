@@ -181,7 +181,7 @@ var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | com
       if (e.type == "end") {
         var latitude = e.detail.centerLocation.latitude;
         var longitude = e.detail.centerLocation.longitude;
-        console.log(latitude, longitude);
+        // console.log(latitude,longitude)
 
         _cloudApi.default.call({
           name: "bookshelfs",
