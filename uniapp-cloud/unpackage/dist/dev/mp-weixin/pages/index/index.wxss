@@ -1,24 +1,71 @@
-
-.content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+.main.data-v-57280228 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
 }
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
+.main .User.data-v-57280228 {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  margin: 10rpx;
+  border-radius: 50rpx;
+  padding: 0 10rpx;
 }
-.text-area {
-	display: flex;
-	justify-content: center;
+.main .User image.data-v-57280228 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin: 20rpx;
 }
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
+.main .User .User_text.data-v-57280228 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10rpx;
+}
+.main .User .User_text view.data-v-57280228 {
+  margin: 10rpx 0;
+}
+.main .User .User_text .np-tag.data-v-57280228 {
+  padding: 0 5px;
+  border-radius: 5px;
+  background-color: #00aaff;
+}
+.main .User .np-blockbutton.data-v-57280228 {
+  margin: 20px auto ;
+  width: 90%;
+}
+.main .user_info.data-v-57280228 {
+  position: relative;
+  flex: 1;
+  border-radius: 50rpx;
+  background-color: #fff;
+  margin: 10rpx;
+  padding: 0 30rpx;
+}
+.main .user_info .tit.data-v-57280228 {
+  font-size: 55rpx;
+  display: block;
+  margin: 40rpx 0;
+}
+.main .user_info .pub_button.data-v-57280228 {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+  border-bottom: 5rpx solid #e5e5e5;
+  margin-bottom: 30rpx;
+}
+.main .user_info .pub_button .text.data-v-57280228 {
+  display: flex;
+  align-items: center;
+}
+.main .user_info .pub_button .text uni-icons.data-v-57280228 {
+  margin: 0 10rpx;
+}
+.tips.data-v-57280228 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
 }
 

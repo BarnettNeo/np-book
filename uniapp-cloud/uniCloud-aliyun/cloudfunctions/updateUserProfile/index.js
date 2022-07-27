@@ -2,13 +2,12 @@
 const {verifyToken} = require('wx-common')
 
 exports.main = async (event, context) => {
-	
 	const { userInfo,token } = event;
 	
 	const db = uniCloud.database();
 	
 	const payload = verifyToken(token);
-	
+	// console.log(payload.openid,userInfo,token)
 	const dbRes = await db.collection("users").where({
 		openid:payload.openid
 	}).update({
@@ -17,8 +16,7 @@ exports.main = async (event, context) => {
 		gender:userInfo.gender,
 		country:userInfo.country,
 		province:userInfo.province,
-		city:userInfo.city
+		city:userInfo.city ,
 	});
-	
 	return dbRes.data;
 };

@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   let res=await uniCloud.httpclient.request("https://search.douban.com/book/subject_search?search_text="+isbn+"&cat=1001");
   
   let reg = /window\.__DATA__ = "(.*)"/;
-  console.log(res.data)
+  console.log("res.data",res.data)
   if(reg.test(res.data)){
 	  let bookdata=RegExp.$1;
 	  let data = doubanbook(bookdata)[0];

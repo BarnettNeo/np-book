@@ -1,24 +1,46 @@
 <template>
 	<pubpage :title="shelfInfo.name">
-		<view slot="contentSection" style="height: 100%;">
-			<canvas id="myPoster" canvas-id="myPoster" type="2d" style="position: absolute;left:-350px;width:350px;height:750px;"></canvas>
+		<view slot="contentSection" >
+			<canvas v-show="isCanvas" id="myPoster" canvas-id="myPoster" type="2d"></canvas>
 			<pubshare v-if="showShareMenu" @selected="onShareSelected" @dismiss="onShareDismiss"></pubshare>
+			
 			<view class="User_info">
 				<view class="User_avatarUrl">
 					<image :src="shelfInfo.ownerinfo.avatarUrl"></image>
 				</view>
 				<view class="User_text">
-					<text class="nickName">用户：{{shelfInfo.ownerinfo.nickName}}</text>
-					<text class="address">地址：{{shelfInfo.address}}</text>
+					<text class="nickName">{{shelfInfo.ownerinfo.nickName}}</text>
+				</view>
+				<view v-if="follow.isExi" class="follow">
+					<uni-tag :circle="true" :inverted="follow.inverted" :text="follow.text"
+					@click="setFollow()" />
 				</view>
 			</view>
-			<view style="justify-content: start;display: flex;flex-wrap: wrap;padding-bottom: 70px;">
-				<view v-for="item in books" :key="item._id" style="width:33.3%;padding:10px;margin-bottom: 10px;">
-					<bookcell :data="item"></bookcell>
-					<view v-if="isEditing" @click="btnDeleteBook" :data-id="item._id" style='font-size:10px;text-align:center;margin-top: 10px;'><text style="padding:5px 10px;background:#f3433e;color:#fff;border-radius:5px;">编辑</text></view>
-				</view>
-				<view v-if="isBooksLen" ref="BooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了</view>
+			<view class="np-address">
+				<text >{{shelfInfo.address}}</text>
 			</view>
+			<view class="textTitle">
+				<text >{{shelfInfo.textTitle}}</text>
+			</view>
+			<view class="desc">
+				<text >{{shelfInfo.desc}}</text>
+			</view>
+			<view class="time">
+				<text >{{shelfInfo.createtime}}</text>
+			</view>
+			<view class="np-divider"></view>
+			
+			<view style="justify-content: start;display: flex;flex-wrap: wrap;padding-bottom: 70px;position: relative;">
+				<view v-if="books" style="width: 100%;display: flex;flex-wrap: wrap;">
+					<view v-for="item in books" :key="item._id" style="min-width: 33.3%;flex: 1;padding:10px;margin-bottom: 10px;">
+						<bookcell :data="item"></bookcell>
+						<view v-if="isEditing" @click="btnDeleteBook" :data-id="item._id" style='font-size:10px;text-align:center;margin-top: 10px;'><text style="padding:5px 10px;background:#f3433e;color:#fff;border-radius:5px;">编辑</text></view>
+					</view>
+				</view>
+
+				<view v-if="isBooksLen" ref="BooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">暂无图书</view>
+			</view>
+			
 		</view>
 		<view v-if="shelfInfo.isowner" slot="tabSection" style="padding:10px;">
 			<view v-if="!isEditing" style="background-color: #00aaff;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
@@ -37,10 +59,12 @@
 
 <script>
 	import cloudApi from "../../common/cloudApi.js"
+	import timeApi from "../../common/timeApi.js"
 	import pubpage from "../../components/pubpage.vue"
 	import pubshare from "../../components/pubshare.vue"
 	
 	import bookcell from "../../components/pub-ui/bookcell.vue"
+	import { mapState,mapGetters,mapMutations,mapActions} from 'vuex'
 	
 	export default {
 		components:{
@@ -57,7 +81,51 @@
 				canloadmore:true,
 				showShareMenu:false,
 				isBooksLen:false,
-				books:[]
+				isCanvas:false,
+				books:[],
+				follow:{
+					isExi:false,
+					loading:true,
+					inverted:false,
+					text:'未关注',
+				}
+				
+			}
+		},
+		computed:{
+		   ...mapGetters(['token']),
+		},
+		watch:{
+			books(cur){
+				cur<1 ? this.isBooksLen = true : this.isBooksLen = false;
+			},
+			'shelfInfo.isowner':{
+				handler:function(cur) {
+					// console.log('权限',cur)
+					cur? this.follow.isExi = false: this.follow.isExi = true;
+					
+					if(!cur){
+						// 非管理员检测关注
+						cloudApi.call({
+							name:"updataFolow",
+							data:{
+								action:"get",
+								token:this.token,
+								_id:this.shelfid
+							},
+							success:(res)=>{
+								console.log(res)
+								this.follow.loading = false;
+								this.follow.inverted = res.result.state;
+							}
+						})
+					}
+				}
+			},
+			'follow.inverted':{
+				handler:function(cur) {
+					cur? this.follow.text = '已关注' : this.follow.text = '未关注';
+				}
 			}
 		},
 		onLoad(options) {
@@ -77,7 +145,64 @@
 			}
 		},
 		methods: {
+			// 关注
+			setFollow(){
+				if(this.follow.loading) return
+				// this.follow.inverted = !this.follow.inverted;
+				if(!this.follow.inverted){
+					this.follow.loading = true;
+					cloudApi.call({
+						name:"updataFolow",
+						data:{
+							action:"add",
+							token:this.token,
+							_id:this.shelfid
+						},
+						success:(res)=>{
+							console.log(res)
+							this.follow.loading = false;
+							this.follow.inverted = res.result.state;
+							uni.showModal({
+								content: '关注成功',
+								showCancel: false
+							});
+						},
+					})
+				}else{
+					// 取消关注
+					this.follow.loading = true;
+					uni.showModal({
+						content:"确定取消关注吗?",
+						success: (res) => {
+							if(res.confirm){
+								this.follow.loading = true;
+								cloudApi.call({
+									name:"updataFolow",
+									data:{
+										action:"delete",
+										token:this.token,
+										_id:this.shelfid
+									},
+									success:(res)=>{
+										console.log(res)
+										this.follow.loading = false;
+										this.follow.inverted = res.result.state;
+										uni.showModal({
+											content: '取消关注成功',
+											showCancel: false
+										});
+									}
+								})
+							}
+						},
+						complete:()=>{
+							this.follow.loading = false;
+						}
+					})
+				}
+			},
 			drawPoster(){
+				this.isCanvas = true;
 				uni.showLoading({
 					title:"生成中",
 					mask:true
@@ -141,7 +266,7 @@
 										ctx.drawImage(image, dx, dy,100,150);
 										// 书名
 										ctx.fontSize=16
-										ctx.fillText(bookItem.title, dx+5, dy+165);
+										ctx.fillText(bookItem.title, dx, dy+165,100);
 										
 										if(bookIndex<bookLength-1){
 										  bookIndex++;
@@ -207,6 +332,7 @@
 			onShareDismiss(){
 				this.showShareMenu= false;
 			},
+			// 请求书房列表
 			getShelfInfo() {
 				cloudApi.call({
 					name:"bookshelfs",
@@ -217,9 +343,17 @@
 					success:(res)=>{
 						console.log(res.result);
 						this.shelfInfo = res.result;
+						this.shelfInfo.createtime ? 
+						this.shelfInfo.createtime = timeApi.timestampToTime(this.shelfInfo.createtime) : 
+						this.shelfInfo.createtime = '';
+						// console.log('时间戳',this.shelfInfo.createtime)
 					}
 				})
+				
+
+				
 			},
+			// 请求书籍列表
 			requestBookList(start=0){
 				if(start&&!this.canloadmore)return;
 				cloudApi.call({
@@ -233,11 +367,7 @@
 						this.canloadmore = res.result.length>=9;
 						if(!start)this.books = res.result;
 						else this.books = this.books.concat(res.result);
-						if(this.books<1){
-							this.isBooksLen = true;
-						}else{
-							this.isBooksLen = false;
-						}
+
 						// console.log('图书',this.books)
 					}
 				})
@@ -320,28 +450,73 @@
 	{
 		background-color: #fff;
 	}
+	#myPoster{
+		position: absolute;
+		display: block;
+		left:-350px;
+		width:350px;
+		height:750px;
+	}
 	.User_info{
 		width: auto;
-		margin-top: 30rpx;
+		margin: 30rpx 0;
 		padding-left: 30rpx;
 		display: flex;
+		position: relative;
 		.User_avatarUrl{
 			width: 150rpx;
 			height: 150rpx;
+			border-radius: 50%;
 			image{
 				width: 100%;
 				height: 100%;
+				border-radius: 50%;
 			}
 		}
 		.User_text{
+			display: flex;
+			align-items: center;
 			margin-left: 20rpx;
 			.nickName{
 				margin: 10rpx 0;
 			}
-			text{
-				display: block;
-				font-size: 24rpx;
+		}
+		.follow{
+			position: absolute;
+			right: 20rpx;
+			top: 50%;
+			transform: translate(0,-50%);
+			.uni-tag{
+				background-color: #fff;
+				border-color: #00aaff;
+				color: #00aaff;
+			}
+			.uni-tag--default--inverted{
+				background-color: #00aaff;
+				border-color: #00aaff;
+				color: #fff;
 			}
 		}
 	}
+	.textTitle{
+		padding: 0 20rpx;
+		font-size: 40rpx;
+		display: block;
+		margin: 20rpx 0;
+	}
+	.desc{
+		padding: 0 20rpx;
+		font-size: 35rpx;
+		display: block;
+		margin: 20rpx 0;
+	}
+	.time{
+		padding: 0 20rpx;
+		font-size: 22rpx;
+		display: block;
+		margin: 20rpx 0;
+		color:#666;
+		text-align: right;
+	}
+
 </style>

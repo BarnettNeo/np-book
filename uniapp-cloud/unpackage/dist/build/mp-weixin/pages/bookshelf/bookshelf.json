@@ -2,6 +2,7 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "uni-tag": "/node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag",
     "pubpage": "/components/pubpage",
     "bookcell": "/components/pub-ui/bookcell",
     "pubshare": "/components/pubshare"

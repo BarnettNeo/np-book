@@ -13,6 +13,7 @@
 <script>
 	import cloudApi from "../../common/cloudApi.js"
 	import pubpage from "../../components/pubpage.vue"
+	import { mapState,mapMutations,mapActions} from 'vuex'
 	
 	var shelfs;
 	export default {
@@ -26,6 +27,9 @@
 				markers:[]
 			}
 		},
+		computed:{
+		   ...mapState(['userInfo']),
+		},
 		onLoad() {
 			uni.getLocation({
 				success: (res) => {
@@ -33,6 +37,7 @@
 					this.longitude=res.longitude;
 				}
 			})
+			console.log(this.userInfo)
 		},
 		methods: {
 			btnMarkerTap(e){
@@ -57,6 +62,7 @@
 						name:"bookshelfs",
 						data:{
 							action:"listbygeo",
+							token:this.userInfo.token,
 							longitude:longitude,
 							latitude:latitude
 						},
@@ -65,18 +71,16 @@
 							
 							shelfs = res.result;
 							var markers = [];
-							for(var i =0;i<shelfs.length;i++){
-								var item = shelfs[i];
+							shelfs.forEach((item,index)=>{
 								markers.push({
-									id:i,
+									id:index,
 									width:55,
 									height:60,
-									iconPath:"/static/mapmarker_shelf.png",
+									iconPath:item.isowner ? "/static/mapmarker_library.png":"/static/mapmarker_shelf.png",
 									latitude:item.geopoint.coordinates[1],
 									longitude:item.geopoint.coordinates[0],
 								});
-							}
-							
+							})
 							this.markers = markers;
 						}
 					})

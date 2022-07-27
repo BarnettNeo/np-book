@@ -30,7 +30,7 @@ function login(){
 }
 
 function logout(){
-	userInfo = null;
+	return userInfo = null;
 }
 
 function isLogin(){
@@ -54,5 +54,6 @@ module.exports = {
 	isLogin:isLogin,
 	getUserInfo:getUserInfo,
 	updateUserInfo:updateUserInfo,
-	login:login
+	login:login,
+	logout:logout
 }

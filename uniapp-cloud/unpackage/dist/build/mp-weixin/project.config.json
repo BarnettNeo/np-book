@@ -16,7 +16,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.24.7",
   "appid": "wxaaf200a34bd1c5e9",
-  "projectname": "dd_books",
+  "projectname": "np-book",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",

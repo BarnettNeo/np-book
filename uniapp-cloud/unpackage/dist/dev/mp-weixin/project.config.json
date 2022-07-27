@@ -14,9 +14,9 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.7",
+  "libVersion": "",
   "appid": "wxaaf200a34bd1c5e9",
-  "projectname": "dd_books",
+  "projectname": "np-book",
   "condition": {
     "search": {
       "current": -1,

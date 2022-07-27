@@ -1,0 +1,1 @@
+<pubpage vue-id="1646a760-1" title="设置" bind:__l="__l" vue-slots="{{['contentSection']}}"><view slot="contentSection"><block wx:if="{{isLogin}}"><view data-event-opts="{{[['tap',[['logOutUserProfile',['$event']]]]]}}" class="np-blockbutton" style="margin:30rpx 0;" bindtap="__e">退出登录</view></block></view></pubpage>

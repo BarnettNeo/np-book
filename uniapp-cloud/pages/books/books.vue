@@ -2,8 +2,8 @@
 	<pubpage title="标题">
 		<view slot="navigationSection">
 			<view style="width: 100%;text-align: center;height:44px;line-height: 44px;background-color: #fff;">搜书</view>
-			<view style="padding:10px;background-color: #fff;">
-				<view style="width: 100%;height: 44px;line-height: 44px;display: flex;border-radius: 22px;border:1px solid #ccc;overflow: hidden;">
+			<view style="padding:10px;background-color: #fff;display: flex;align-items: center;">
+				<view style="width: 86%;display:inline-block; 44px;line-height: 44px;display: flex;border-radius: 22px;border:1px solid #ccc;overflow: hidden;">
 					<view style="width: 44px;text-align: center;">
 						<text class="iconfont icon-search"></text>
 					</view>
@@ -14,6 +14,9 @@
 						搜索
 					</view>
 				</view>
+				<navigator url="../map/map" class="map_icon">
+					<image src="../../static/tabicons/map_1.png" mode=""></image>
+				</navigator>
 			</view>
 		</view>
 		<view slot="contentSection">
@@ -21,9 +24,11 @@
 				<view v-for="item in books" :key="item._id" style="width:33.3%;padding:10px;margin-bottom: 10px;">
 					<bookcell :data="item"></bookcell>
 				</view>
-				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">没图书了哥</view>
+				<view v-if="isBooksLen" style="position: absolute;width: 100%;text-align: center;top: 25%;">暂无图书</view>
 			</view>
 		</view>
+
+		
 		<!-- <view slot="tabSection">
 			
 		</view> -->
@@ -60,6 +65,7 @@
 				this.getBooks();
 			},
 			getBooks(start=0){
+				this.isBooksLen = false;
 				if(!this.canloadmore)return;
 				cloudApi.call({
 					name:"books",
@@ -73,7 +79,7 @@
 						
 						if(start)this.books = this.books.concat(res.result);
 						else this.books = res.result;
-						if(this.books<1) this.isBooksLen = true;
+						this.books<1 ? this.isBooksLen = true : this.isBooksLen = false;
 					}
 				});
 			}
@@ -81,9 +87,19 @@
 	}
 </script>
 
-<style>
+<style scoped lang="less">
 	page
 	{
 		background-color: #fff;
+		.map_icon{
+			display: inline-block;
+			width: 64rpx;
+			height: 64rpx;
+			    margin-left: 30rpx;
+			image{
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 </style>

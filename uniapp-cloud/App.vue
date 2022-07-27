@@ -1611,6 +1611,16 @@
 		display: flex;
 		justify-content: space-between;
 		color: #333;
+		position: relative;
+	}
+	.np-desc
+	{
+		position: relative;
+		width: 100%;
+		min-height: 750rpx;
+		display: flex;
+		color: #333;
+		margin: 20rpx 0;
 	}
 	.np-cell>view:nth-child(1)
 	{
@@ -1619,5 +1629,21 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+	}
+	.np-address{
+		height:30px;
+		line-height: 30px;
+		font-size: 14px;
+		color:#666;
+		padding:0px 20rpx;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.np-textTitle{
+		border-top: 1px solid #ccc;
+		height:30px;
+		line-height: 30px;
+		padding:0px 20rpx;
 	}
 </style>

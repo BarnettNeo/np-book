@@ -31,7 +31,10 @@ exports.main = async (event, context) => {
 			gender:0,
 			country:"",
 			province:"",
-			city:""
+			city:"",
+			folow:[],
+			fans:[]
+			
 		}
 		//不要泄露用户的openid
 		await db.collection("users").add({openid:openid,...userData});
@@ -39,6 +42,9 @@ exports.main = async (event, context) => {
 		// 拿数据库信息
 		userData = dbRes.data[0];
 		
+		userData["folow"].forEach((item)=>{
+			delete item.id
+		})
 		//不要泄露用户的openid
 		delete userData["openid"];
 	}

@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/pubshare":1,"components/pubnaviagtionbar":1};
+/******/ 		var cssChunks = {"node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons":1,"components/pub-ui/bookshelfcell":1,"components/pubshare":1,"node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag":1,"components/pubnaviagtionbar":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/pubpage":"components/pubpage","components/pub-ui/bookcell":"components/pub-ui/bookcell","components/pub-ui/bookshelfcell":"components/pub-ui/bookshelfcell","components/pubshare":"components/pubshare","components/pubnaviagtionbar":"components/pubnaviagtionbar"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/pub-ui/bookcell":"components/pub-ui/bookcell","components/pubpage":"components/pubpage","node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons":"node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons","components/pub-ui/bookshelfcell":"components/pub-ui/bookshelfcell","components/pubshare":"components/pubshare","node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag":"node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag","components/pubnaviagtionbar":"components/pubnaviagtionbar"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

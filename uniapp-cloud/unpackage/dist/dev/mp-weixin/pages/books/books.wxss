@@ -1,6 +1,14 @@
-
-page
-{
-	background-color: #fff;
+page.data-v-707ad89c {
+  background-color: #fff;
+}
+page .map_icon.data-v-707ad89c {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  margin-left: 30rpx;
+}
+page .map_icon image.data-v-707ad89c {
+  width: 100%;
+  height: 100%;
 }
 

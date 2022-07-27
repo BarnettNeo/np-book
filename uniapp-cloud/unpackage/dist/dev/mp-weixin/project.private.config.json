@@ -3,9 +3,16 @@
     "miniprogram": {
       "list": [
         {
-          "name": "bookshelf",
-          "pathName": "pages/bookshelf/bookshelf",
-          "query": "id=627a3473f4194f0001093218",
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "person",
+          "pathName": "pages/person/person",
+          "query": "",
           "launchMode": "default",
           "scene": null
         }
@@ -17,5 +24,6 @@
   "setting": {
     "compileHotReLoad": true,
     "urlCheck": false
-  }
+  },
+  "libVersion": "2.24.6"
 }

@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/me/index",
     "pages/books/books",
     "pages/index/index",
+    "pages/gear/gear",
+    "pages/person/person",
     "pages/map/map",
     "pages/createbookshelf/createbookshelf",
     "pages/bookshelf/bookshelf",
-    "pages/bookdetail/bookdetail"
+    "pages/bookdetail/bookdetail",
+    "pages/folow/folow"
   ],
   "subPackages": [],
   "window": {
@@ -21,22 +23,16 @@
     "selectedColor": "#00aaff",
     "list": [
       {
-        "iconPath": "static/tabicons/me_0.png",
-        "selectedIconPath": "static/tabicons/me_1.png",
-        "pagePath": "pages/me/index",
-        "text": "我"
-      },
-      {
         "iconPath": "static/tabicons/forum_0.png",
         "selectedIconPath": "static/tabicons/forum_1.png",
         "pagePath": "pages/books/books",
         "text": "书库"
       },
       {
-        "iconPath": "static/tabicons/map_0.png",
-        "selectedIconPath": "static/tabicons/map_1.png",
-        "pagePath": "pages/map/map",
-        "text": "地图"
+        "iconPath": "static/tabicons/me_0.png",
+        "selectedIconPath": "static/tabicons/me_1.png",
+        "pagePath": "pages/index/index",
+        "text": "我"
       }
     ]
   },
