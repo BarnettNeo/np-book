@@ -5,6 +5,10 @@ exports.main = async (event, context) => {
   const db = uniCloud.database();
   
   let { isbn } = event;
+  
+  // 查询数据库中是否有该图书
+  
+  
   let res=await uniCloud.httpclient.request("https://search.douban.com/book/subject_search?search_text="+isbn+"&cat=1001");
   
   let reg = /window\.__DATA__ = "(.*)"/;
@@ -21,6 +25,7 @@ exports.main = async (event, context) => {
 		  return dbResult.data[0];
 	  }
 	  
+	  // 豆瓣图片上传到云存储
 	  let coverImage = await uniCloud.httpclient.request(data.cover_url);
 	  
 	  let uploadResult = await uniCloud.uploadFile({

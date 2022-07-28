@@ -29,9 +29,10 @@
 		onShow() {
 		},
 		methods: {
-			...mapMutations(['setUserInfo']),
+			...mapMutations(['setUserInfo','updateBgImg']),
 			logOutUserProfile(){
-				this.setUserInfo(null)	
+				this.setUserInfo(null)
+				this.updateBgImg(null)
 				console.log('退出登录',this.isLogin,this.userInfo)
 				uni.navigateBack()
 			}

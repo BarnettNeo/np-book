@@ -10,19 +10,20 @@
   display: flex;
   margin: 10rpx;
   border-radius: 50rpx;
-  padding: 0 10rpx;
 }
 .main .User image.data-v-57280228 {
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
   margin: 20rpx;
+  z-index: 2;
+  border: 1px solid #fff;
 }
 .main .User .User_text.data-v-57280228 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 10rpx;
+  z-index: 2;
 }
 .main .User .User_text view.data-v-57280228 {
   margin: 10rpx 0;
@@ -35,6 +36,21 @@
 .main .User .np-blockbutton.data-v-57280228 {
   margin: 20px auto ;
   width: 90%;
+}
+.main .User .uni-file.data-v-57280228 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50rpx;
+}
+.main .User .uni-file .setUserBg.data-v-57280228 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 200rpx;
+  height: 100rpx;
+  right: 0;
 }
 .main .user_info.data-v-57280228 {
   position: relative;

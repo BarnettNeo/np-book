@@ -4,8 +4,13 @@
 			<view class="User">
 				<image @click="updateUserProfile" :src="userInfo.avatarUrl?userInfo.avatarUrl:'/static/unlogin_avatarUrl.png'" mode="widthFix"></image>
 				<view class="User_text">
-					<view>{{userInfo.nickName?userInfo.nickName:'昵称'}}</view>
+					<view :style="{'color':bgImg?'#fff':'#000'}">{{userInfo.nickName?userInfo.nickName:'昵称'}}</view>
 					<view v-if="!isLogin"><text class="np-tag">点击头像同步微信信息</text></view>
+				</view>
+				<view class="uni-file" :style="'background:url('+bgImg+');background-size: cover;background-repeat: no-repeat;'">
+					<uni-tag text="设置背景" @click="chooseImage"
+					:circle="true"
+					custom-style="background-color: #00aaff; border-color: #00aaff; color: #fff;position: absolute;right: 10rpx;top: 50%;transform: translate(0, -50%);"></uni-tag>
 				</view>
 			</view>
 			<view class="user_info">
@@ -35,6 +40,7 @@
 <script>
 	import loginUser from "../../common/currentUser.js"	
 	import pubpage from "../../components/pubpage.vue"
+	import cloudApi from "../../common/cloudApi.js"
 	import { mapState,mapGetters,mapMutations,mapActions} from 'vuex'
 	
 	export default {
@@ -63,16 +69,21 @@
 						type:'gear',
 						text:'设置'
 					},
-				]
+				],
 			}
 		},
 		computed:{
 		   ...mapState(['userInfo']),
+		   ...mapState(['bgImg']),
 		   ...mapGetters(['isLogin']),
+		   ...mapGetters(['token']),
 		},
 		async onLoad(options){
 			this.setUserInfo(await loginUser.login())			
 			console.log('登录token返回',this.userInfo)
+			if(this.userInfo){
+				this.updateBgImg(this.userInfo.bgImg)
+			}
 			if(options.scene){
 				var scene = unescape(options.scene);
 				var params = scene.split("=");
@@ -87,17 +98,34 @@
 			// console.log(this.isLogin)
 		},
 		methods: {
-			...mapMutations(['setUserInfo']),
+			...mapMutations(['setUserInfo','updateBgImg']),
 			// ...mapActions(['getUserInfo']),
 			updateUserProfile(){
-				uni.getUserProfile({
-					desc: '信息给哥交出来',
-					success: (res) => {
-						let _obj = {...this.userInfo,...res.userInfo}
-						this.setUserInfo(_obj);
-						loginUser.updateUserInfo(_obj);
-					}
-				})
+				if(!this.userInfo){
+					uni.getUserProfile({
+						desc: '信息给哥交出来',
+						success: (res) => {
+							let _obj = {...this.userInfo,...res.userInfo}
+							this.setUserInfo(_obj);
+							// 检测用户背景
+							if(!this.userInfo.bgImg){
+								cloudApi.call({
+									name:"uploadImage",
+									data:{
+										action:'get',
+										code:this.token,
+									},
+									success: (res) => {
+										this.updateBgImg(res.result)
+									}
+								})
+								
+							}
+							loginUser.updateUserInfo(_obj);
+						}
+					})
+				}
+
 			},
 			loginUserProfile(id){
 				if(!this.isLogin){
@@ -127,10 +155,62 @@
 					}
 					
 				}
-				// uni.navigateTo({
-				// 	url:"../person/person"
-				// })
 			},
+			
+			// 设置背景图片上传
+			chooseImage(){
+				if(!this.isLogin){
+					this.updateUserProfile()
+					return
+				}{
+					uni.chooseImage({
+					count: 1, //默认9
+					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+					sourceType: ['album','camera'], //从相册选择
+					success: (res)=> {
+						uni.showLoading();
+						const filePath = res.tempFilePaths[0]
+						console.log(res,filePath)
+						var timestamp = (new Date()).valueOf();//新建日期对象并变成时间戳
+						uniCloud.uploadFile({
+						  cloudPath: timestamp+".jpg", // 上传至云端的路径
+						  filePath: filePath, // 小程序临时文件路径
+						  success: res => {
+							console.log('[上传文件] 成功：', res)
+							this.updateBgImg(res.fileID)
+							cloudApi.call({
+								name:"uploadImage",
+								data:{
+									action:'add',
+									code:this.token,
+									bgImg:res.fileID
+								},
+								success: (res) => {
+									console.log(res)
+								}
+							})
+
+						  },
+						  fail: (err) => {
+							console.error('[上传文件] 失败：', err)
+							return uni.showToast({
+								icon:"none",
+								mask:true,
+								title:"上传失败"
+							})
+						  },
+						  complete: () => {
+							uni.hideLoading();
+						  }
+						})
+						
+						
+						
+						
+					}
+				})
+				}
+			}
 			
 		}
 	}
@@ -148,19 +228,21 @@
 			display: flex; 
 			margin: 10rpx;
 			border-radius: 50rpx;
-			padding: 0 10rpx;
 			image{
 				width:200rpx;
 				height:200rpx;
 				border-radius: 50%;
 				// background-color: #8F8F94;
 				margin: 20rpx;
+				z-index:2;
+				border: 1px solid #fff;
 			}
 			.User_text{
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				margin-left: 10rpx;
+
+				z-index:2;
 				view{
 					margin: 10rpx 0;
 				}
@@ -175,6 +257,22 @@
 				margin: 20px auto ;
 				width: 90%;
 			}
+			
+			.uni-file{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 50rpx;
+				.setUserBg{
+					position: absolute;
+					top: 50%;
+					transform: translate(0,-50%);
+					width:200rpx;
+					height:100rpx;
+					right: 0;
+				}
+			}
+			
 		}
 		
 		.user_info{

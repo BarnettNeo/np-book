@@ -1,6 +1,6 @@
 <template>
 	<pubpage :title="shelfInfo.name">
-		<view slot="contentSection" >
+		<view slot="contentSection" style="position: relative;">
 			<canvas v-show="isCanvas" id="myPoster" canvas-id="myPoster" type="2d"></canvas>
 			<pubshare v-if="showShareMenu" @selected="onShareSelected" @dismiss="onShareDismiss"></pubshare>
 			
@@ -201,6 +201,8 @@
 					})
 				}
 			},
+			
+			// 生成海报
 			drawPoster(){
 				this.isCanvas = true;
 				uni.showLoading({
@@ -208,6 +210,7 @@
 					mask:true
 				});
 				const query = wx.createSelectorQuery()
+				console.log(query.select('#myPoster'))
 				query.select('#myPoster')
 					 .fields({ node: true, size: true })
 					 .exec(async (res) => {
@@ -246,7 +249,7 @@
 						var bookIndex = 0;
 						var loadNextBookCover=()=>{
 							var bookItem = this.books[bookIndex];
-							console.log(this.books)
+							// console.log(this.books)
 							if(this.books.length<1){
 								uni.showModal({
 									content: '无图书分享',
@@ -303,7 +306,9 @@
 						});
 						console.log(wxacodeRes)
 						
-						wx.getFileSystemManager().writeFileSync(
+						// 本地缓存文件
+						const fs = wx.getFileSystemManager()
+						const wr = fs.writeFileSync(
 							`${wx.env.USER_DATA_PATH}/mpcode.jpg`,
 							uni.arrayBufferToBase64(wxacodeRes.result.data),
 							"base64"
@@ -311,6 +316,7 @@
 						uni.getImageInfo({
 							src:`${wx.env.USER_DATA_PATH}/mpcode.jpg`,
 							success: (res) => {
+								console.log('二维码',res)
 								var image=canvas.createImage();
 								image.onload=(res)=>{			
 								  ctx.drawImage(image, 350-170, 750-170,160,160);
@@ -413,11 +419,14 @@
 			btnScan(){
 				uni.scanCode({
 					success: async (res) => {
-						// console.log(res)
+						console.log('扫码结果',res)
 						const isbnres = await cloudApi.call({
 							name:"ISBNQuery",
 							data:{
 								isbn:res.result
+							},
+							success:(res)=>{
+								console.log('doubanbook',res)
 							}
 						})
 						await cloudApi.call({
@@ -456,6 +465,11 @@
 		left:-350px;
 		width:350px;
 		height:750px;
+		// width: 98%;
+		// height: 99%;
+		// left: 50%;
+		// top: 50%;
+		// transform: translate(-50%,-50%);
 	}
 	.User_info{
 		width: auto;

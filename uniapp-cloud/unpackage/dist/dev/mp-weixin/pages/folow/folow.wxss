@@ -3,15 +3,20 @@
   flex-direction: column;
   flex-wrap: wrap;
   height: 100%;
+  overflow-y: auto;
+  position: relative;
 }
 .main-folow .folowList.data-v-3823995e {
   background-color: #fff;
   position: relative;
   display: flex;
-  margin: 20rpx;
+  margin: 10rpx;
   border-radius: 50rpx;
   padding: 0 10rpx;
   border: 1px solid #ccc;
+}
+.main-folow .folowList.data-v-3823995e:first-child {
+  margin-top: 20rpx;
 }
 .main-folow .folowList image.data-v-3823995e {
   width: 150rpx;
@@ -36,5 +41,12 @@
 .main-folow .folowList .np-blockbutton.data-v-3823995e {
   margin: 20px auto ;
   width: 90%;
+}
+.main-folow .folow_err.data-v-3823995e {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
 }
 

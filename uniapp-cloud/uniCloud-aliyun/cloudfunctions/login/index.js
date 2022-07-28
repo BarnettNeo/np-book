@@ -33,7 +33,8 @@ exports.main = async (event, context) => {
 			province:"",
 			city:"",
 			folow:[],
-			fans:[]
+			fans:[],
+			bgImg:''
 			
 		}
 		//不要泄露用户的openid

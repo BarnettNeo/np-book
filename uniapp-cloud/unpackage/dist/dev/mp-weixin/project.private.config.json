@@ -15,6 +15,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "bookshelf",
+          "pathName": "pages/bookshelf/bookshelf",
+          "query": "id=62dcc6167a1d2700017886e7",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
