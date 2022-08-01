@@ -109,7 +109,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/pub-ui/bookcell":"components/pub-ui/bookcell","components/pubpage":"components/pubpage","node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons":"node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons","node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag":"node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag","components/pub-ui/bookshelfcell":"components/pub-ui/bookshelfcell","components/pubshare":"components/pubshare","components/pubnaviagtionbar":"components/pubnaviagtionbar"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"node-modules/@dcloudio/uni-cli-shared/components/unicloud-db":"node-modules/@dcloudio/uni-cli-shared/components/unicloud-db","components/pub-ui/bookcell":"components/pub-ui/bookcell","components/pubpage":"components/pubpage","node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons":"node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons","node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag":"node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag","components/pub-ui/bookshelfcell":"components/pub-ui/bookshelfcell","components/pubshare":"components/pubshare","components/pubnaviagtionbar":"components/pubnaviagtionbar"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

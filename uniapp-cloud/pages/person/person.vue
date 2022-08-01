@@ -2,7 +2,7 @@
 	<pubpage title="我的书房">
 		<view slot="contentSection" style="padding: 10px;">
 			<view v-for="item in bookshelfs" :key="item._id" style="margin-bottom: 10px;">
-				<bookshelfcell @removeHandler="onRemoveHandler" :data="item"></bookshelfcell>
+				<bookshelfcell :isHome="true" @removeHandler="onRemoveHandler" :data="item"></bookshelfcell>
 			</view>
 			<view @click="btnCreateBookShelf" class="np-blockbutton" style="margin-bottom: 10px;">新建书房</view>
 		</view>

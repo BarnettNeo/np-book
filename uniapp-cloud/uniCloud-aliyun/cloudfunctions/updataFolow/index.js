@@ -108,6 +108,7 @@ exports.main = async (event, context) => {
 		const ownerinfo = await db.collection("users").field({folow:true}).where({
 			openid:dbCmd.eq(payload.openid),
 		}).limit(1).get()
+		// 处理openid
 		ownerinfo.data[0]["folow"].forEach((item)=>{
 			delete item.id
 		})

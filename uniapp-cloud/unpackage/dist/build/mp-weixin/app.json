@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/books/books",
     "pages/index/index",
     "pages/gear/gear",
@@ -13,15 +14,19 @@
   "subPackages": [],
   "window": {
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "selectedColor": "00aaff",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#fff",
-    "backgroundColor": "#fff"
+    "navigationBarTitleText": "uni-app"
   },
   "tabBar": {
     "selectedColor": "#00aaff",
     "list": [
+      {
+        "iconPath": "static/tabicons/home_0.png",
+        "selectedIconPath": "static/tabicons/home_1.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
       {
         "iconPath": "static/tabicons/forum_0.png",
         "selectedIconPath": "static/tabicons/forum_1.png",
@@ -41,6 +46,5 @@
       "desc": "请允许我们访问您的位置信息以推荐附近的书友"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

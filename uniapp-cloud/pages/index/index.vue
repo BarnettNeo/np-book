@@ -78,21 +78,13 @@
 		   ...mapGetters(['isLogin']),
 		   ...mapGetters(['token']),
 		},
-		async onLoad(options){
+		async onLoad(){
 			this.setUserInfo(await loginUser.login())			
 			console.log('登录token返回',this.userInfo)
 			if(this.userInfo){
 				this.updateBgImg(this.userInfo.bgImg)
 			}
-			if(options.scene){
-				var scene = unescape(options.scene);
-				var params = scene.split("=");
-				var key = params[0];
-				
-				uni.navigateTo({
-					url:"../bookshelf/bookshelf?id="+params[1]
-				})
-			}
+			
 		},
 		onShow() {
 			// console.log(this.isLogin)

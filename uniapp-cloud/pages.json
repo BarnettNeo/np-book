@@ -1,6 +1,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/home/home",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "首页",
+		        "enablePullDownRefresh": true,
+				"navigationStyle":"default",
+				"navigationBarBackgroundColor":"#fff",
+				"navigationBarTextStyle":"black"
+		    }
+		    
+		},
+		{
 		    "path" : "pages/books/books",
 		    "style" :                                                                                    
 		    {
@@ -78,10 +90,17 @@
             }
             
         }
+        
     ],
 	"tabBar":{
 		"selectedColor": "#00aaff",
 		"list":[
+			{
+				"iconPath":"static/tabicons/home_0.png",
+				"selectedIconPath":"static/tabicons/home_1.png",
+				"pagePath":"pages/home/home",
+				"text":"首页"
+			},
 			{
 				"iconPath":"static/tabicons/forum_0.png",
 				"selectedIconPath":"static/tabicons/forum_1.png",
@@ -99,12 +118,12 @@
 	},
 	"globalStyle": {
 		"navigationStyle":"custom",
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "#fff",
 		"selectedColor":"00aaff",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#fff",
-		"backgroundColor": "#fff"
+		"navigationBarTitleText": "uni-app"
 	},
+	
+	
 	"easycom": {
 		"autoscan": true,
 		"custom": {

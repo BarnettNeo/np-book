@@ -28,8 +28,17 @@ exports.main = async (event, context) => {
 			return {err:3,msg:"书房描述内容不安全"};
 		}
 		
+		const ownerinfo = await db.collection("users").where({
+			openid:dbCmd.eq(payload.openid),
+		})
+		.limit(1)
+		.get()
+		
+		
 		dbRes = await db.collection("bookshelfs").add({
 			owner:payload.openid,
+			nickName:ownerinfo.data[0].nickName,
+			avatarUrl:ownerinfo.data[0].avatarUrl,
 			name:event.name,
 			textTitle:event.textTitle,
 			desc:event.desc,
@@ -80,7 +89,12 @@ exports.main = async (event, context) => {
 		.orderBy("_id","desc")
 		.limit(10)
 		.get()
-	}else if(action=="listbybook"){
+	}else if(action=="listall"){
+		dbRes = await db.collection('bookshelfs')
+		.orderBy("_id","desc")
+		.limit(10)
+		.get()
+		
 		
 	}else if(action=="listbygeo"){
 		// console.log(event.longitude, event.latitude,payload.openid)
