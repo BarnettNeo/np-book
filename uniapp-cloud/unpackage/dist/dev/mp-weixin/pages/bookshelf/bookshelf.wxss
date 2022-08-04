@@ -38,7 +38,6 @@ page {
   width: auto;
   margin: 30rpx 0;
   padding-left: 30rpx;
-  display: flex;
   position: relative;
 }
 .User_info .User_avatarUrl {
@@ -58,23 +57,6 @@ page {
 }
 .User_info .User_text .nickName {
   margin: 10rpx 0;
-}
-.User_info .follow {
-  position: absolute;
-  right: 20rpx;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-}
-.User_info .follow .uni-tag {
-  background-color: #fff;
-  border-color: #00aaff;
-  color: #00aaff;
-}
-.User_info .follow .uni-tag--default--inverted {
-  background-color: #00aaff;
-  border-color: #00aaff;
-  color: #fff;
 }
 .textTitle {
   padding: 0 20rpx;

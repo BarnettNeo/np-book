@@ -5,7 +5,9 @@ function call(option){
 	return new Promise((resolve,reject)=>{
 		if(!option.data)option.data={};
 		if(token)option.data.token = token;
-		uni.showLoading();
+		if(!option.loading){
+			uni.showLoading();
+		}
 		uniCloud.callFunction({
 			name:option.name,
 			data:option.data,

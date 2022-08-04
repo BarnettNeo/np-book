@@ -18,5 +18,9 @@ exports.main = async (event, context) => {
 		province:userInfo.province,
 		city:userInfo.city ,
 	});
-	return dbRes.data;
+	const ownerinfo = await db.collection("users").where({
+		openid:payload.openid
+	}).limit(1).get()
+	console.log(dbRes,ownerinfo)
+	return ownerinfo.data[0];
 };

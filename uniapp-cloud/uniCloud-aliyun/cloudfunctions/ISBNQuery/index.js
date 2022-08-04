@@ -115,7 +115,10 @@ exports.main = async (event, context) => {
 
 		resData["_id"] = dbResult["id"];
 
-		return resData;
+		return {
+			state:true,
+			resData
+		};
 	}
 
 	返回数据给客户端

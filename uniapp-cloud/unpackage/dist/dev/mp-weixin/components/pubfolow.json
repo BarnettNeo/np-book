@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "uni-tag": "/node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag"
+  },
+  "component": true
+}

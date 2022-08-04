@@ -21,7 +21,7 @@ const store = new Vuex.Store({
 				state.folow = newValue.folow;
 			}
 		},
-		updataFolow(state, newValue){
+		updateFolow(state, newValue){
 			state.folow = newValue;
 		},
 		updateBgImg(state, newValue){

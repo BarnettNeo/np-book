@@ -6,7 +6,10 @@ function timestampToTime(timestamp) {
 	(date.getMonth() + 1 < 10
 	  ? '0' + (date.getMonth() + 1)
 	  : date.getMonth() + 1) + '-';
-  var D = date.getDate() + ' ';
+  var D = 
+	(date.getDate() + 1 < 10
+	? '0' + (date.getDate() + 1)
+	: date.getDate() + 1);
   var h = date.getHours() + ':';
   var m = date.getMinutes() + ':';
   var s = date.getSeconds();

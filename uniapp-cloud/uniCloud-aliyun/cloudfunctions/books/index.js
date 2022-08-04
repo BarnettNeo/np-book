@@ -88,7 +88,7 @@ exports.main = async (event, context) => {
 			.orderBy("updatetime", "desc")
 			.limit(12)
 			.get();
-
+		// console.log(event.start,option,dbRes)
 
 	} else if (action == "get") {
 		dbRes = await db.collection("isbnlib").where({

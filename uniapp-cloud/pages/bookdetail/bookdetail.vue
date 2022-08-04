@@ -8,19 +8,20 @@
 			</view>
 			<view class="detail-score">
 				<view class="">豆瓣评分</view>
-				<view>
+				<view style="display: flex;align-self: center;">
 					<view class="score">
-						{{bookInfo.rating.value}}
+						{{bookInfo.rating.value?bookInfo.rating.value:'无'}}
 					</view>
-					<view>
-						<text>星星：{{bookInfo.rating.star_count}}</text>
-						<text>{{bookInfo.rating.rating_info}}</text>
+					<view style="margin-left: 20rpx;">
+						<uni-rate color="#bbb" :readonly="true" allow-half :value="bookInfo.rating.star_count" />
+						<text>{{bookInfo.rating.count?bookInfo.rating.count:'无'}}人评价</text>
 					</view>
 				</view>
 			</view>
-			<view>
+			<view style="padding-left: 20rpx;">
 				<view>更多图书详情：</view>
-				<navigator :url="bookInfo.del_url" class="detail-line">{{bookInfo.del_url}}</navigator>
+				<uni-link :href="bookInfo.del_url" :text="bookInfo.del_url" fontSize="16" class="detail-line"
+				color="#00aaff">点击跳转</uni-link>
 			</view>
 		</view>
 	</pubpage>
@@ -64,14 +65,20 @@
 	.detail-score{
 		border-top: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
-		margin: 20rpx 0;
+		margin: 0 0 20rpx;
 		padding: 20rpx 0;
+		padding-left: 20rpx;
 	}
 	.detail-line{
-		margin-top: 10rpx;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-		text-decoration: underline;
+		margin-top:10rpx;
+		display: block;
+	}
+	.score{
+		font-size: 55rpx;
+		line-height: 50rpx;
+		margin: 0 20rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>

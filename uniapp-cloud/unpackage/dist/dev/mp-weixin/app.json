@@ -9,7 +9,12 @@
     "pages/createbookshelf/createbookshelf",
     "pages/bookshelf/bookshelf",
     "pages/bookdetail/bookdetail",
-    "pages/folow/folow"
+    "pages/folow/folow",
+    "pages/heart/heart",
+    "pages/star/star",
+    "orderpage/index/index",
+    "orderpage/orperson/orperson",
+    "orderpage/orstar/orstar"
   ],
   "subPackages": [],
   "window": {

@@ -11,8 +11,11 @@
 		<view style="width:100%;height:100%;position: relative;" :style="{paddingTop:paddingTop+'px',paddingBottom:paddingBottom+'px'}">
 			<slot name="contentSection"></slot>
 		</view>
-		<view style="width:100%;position: fixed;z-index: 998;bottom: 0;">
+		<view style="width:100%;position: fixed;z-index: 998;bottom: 100rpx;">
 			<slot name="tabSection"></slot>
+		</view>
+		<view style="width:100%;position: fixed;z-index: 998;bottom: 0;">
+			<slot name="footerSection"></slot>
 		</view>
 	</view>
 </template>

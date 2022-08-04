@@ -23,6 +23,7 @@
 		},
 		methods:{
 			clicked_selected:function(index){
+				// console.log('组件',index)
 				this.$emit("selected",index);
 				this.$emit("dismiss");
 			},
@@ -54,7 +55,8 @@
 	.pubshare
 	{
 		width:100%;
-		height: 100%;
+		/* height: 100%; */
+		height: 750px;
 		background: rgba(0,0,0,.3);
 		position: absolute;
 		z-index:999999;

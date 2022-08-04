@@ -33,16 +33,19 @@ exports.main = async (event, context) => {
 			province:"",
 			city:"",
 			folow:[],
-			fans:[],
+			heart:[],
+			star:[],
 			bgImg:''
 			
 		}
 		//不要泄露用户的openid
 		await db.collection("users").add({openid:openid,...userData});
+		console.log('login',userData)
 	}else{
 		// 拿数据库信息
 		userData = dbRes.data[0];
 		
+		if(dbRes.data[0].folow)
 		userData["folow"].forEach((item)=>{
 			delete item.id
 		})

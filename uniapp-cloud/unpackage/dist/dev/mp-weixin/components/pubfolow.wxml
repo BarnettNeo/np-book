@@ -1,0 +1,1 @@
+<view class="np-follow"><uni-tag vue-id="70c873dd-1" circle="{{true}}" inverted="{{follow.inverted}}" text="{{follow.text}}" data-event-opts="{{[['^click',[['setFollow']]]]}}" bind:click="__e" bind:__l="__l"></uni-tag></view>

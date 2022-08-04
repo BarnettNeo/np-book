@@ -7,7 +7,7 @@
 					<view :style="{'color':bgImg?'#fff':'#000'}">{{userInfo.nickName?userInfo.nickName:'昵称'}}</view>
 					<view v-if="!isLogin"><text class="np-tag">点击头像同步微信信息</text></view>
 				</view>
-				<view class="uni-file" :style="'background:url('+bgImg+');background-size: cover;background-repeat: no-repeat;'">
+				<view class="uni-file" :style="bgImg?'background:url('+bgImg+');background-size: cover;background-repeat: no-repeat;':''">
 					<uni-tag text="设置背景" @click="chooseImage"
 					:circle="true"
 					custom-style="background-color: #00aaff; border-color: #00aaff; color: #fff;position: absolute;right: 10rpx;top: 50%;transform: translate(0, -50%);"></uni-tag>
@@ -26,13 +26,6 @@
 					<uni-icons type="right" size="20"></uni-icons>
 				</view>
 			</view>
-
-			
-			<!-- <view v-if="!isLogin" @click="updateUserProfile" class="np-blockbutton">授权登录</view>
-			<view v-if="isLogin" @click="loginUserProfile" class="np-blockbutton">个人中心</view>
-			<view v-if="isLogin" @click="logOutUserProfile" class="np-blockbutton">退出登录</view> -->
-			
-			<!-- <view class="tips">Welcome to here！</view> -->
 		</view>
 	</pubpage>
 </template>
@@ -48,7 +41,6 @@
 			pubpage
 		},
 		data() {
-			// unlogin_avatarUrl = require('/static/unlogin_avatarUrl.png')
 			return {
 				// userInfo:null,
 				// isLogin:false,
@@ -62,8 +54,12 @@
 						text:'我的收藏'
 					},
 					{
-						type:'heart',
+						type:'staff',
 						text:'我的关注'
+					},
+					{
+						type:'heart',
+						text:'我的喜欢'
 					},
 					{
 						type:'gear',
@@ -93,10 +89,10 @@
 			...mapMutations(['setUserInfo','updateBgImg']),
 			// ...mapActions(['getUserInfo']),
 			updateUserProfile(){
-				if(!this.userInfo){
+				if(!this.userInfo || !this.userInfo.avatarUrl){
 					uni.getUserProfile({
 						desc: '信息给哥交出来',
-						success: (res) => {
+						success: async (res) => {
 							let _obj = {...this.userInfo,...res.userInfo}
 							this.setUserInfo(_obj);
 							// 检测用户背景
@@ -114,6 +110,8 @@
 								
 							}
 							loginUser.updateUserInfo(_obj);
+							// this.setUserInfo(await loginUser.login())
+							console.log(this.userInfo)
 						}
 					})
 				}
@@ -132,9 +130,16 @@
 						})
 						break;
 						case 'star':
-						
+						uni.navigateTo({
+							url:"../star/star"
+						})
 						break;
 						case 'heart':
+						uni.navigateTo({
+							url:"../heart/heart"
+						})
+						break;
+						case 'staff':
 						uni.navigateTo({
 							url:"../folow/folow"
 						})

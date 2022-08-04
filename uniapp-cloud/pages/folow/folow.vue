@@ -2,7 +2,7 @@
 	<pubpage title="我的关注">
 		<view slot="contentSection" class="main-folow">
 			<view v-if="folow">
-				<view class="folowList" v-for="item in folow" :key="item._id">
+				<view class="folowList" v-for="item in folow" :key="item.id" @click="openPage(item.id)">
 					<image :src="item.url" mode="widthFix"></image>
 					<view class="User_text">
 						<view>{{item.name}}</view>
@@ -34,14 +34,14 @@
 		onShow() {
 			uni.showLoading();
 			cloudApi.call({
-				name:"updataFolow",
+				name:"updateFolow",
 				data:{
 					action:'getList',
 					code:this.token
 				},
 				success: (res) => {
-					// console.log(res)
-					this.updataFolow(res.result.folow)
+					console.log(res)
+					this.updateFolow(res.result.folow)
 				},
 				complete:()=>{
 					uni.hideLoading();
@@ -49,7 +49,13 @@
 			})
 		},
 		methods: {
-			...mapMutations(['updataFolow']),
+			...mapMutations(['updateFolow']),
+			openPage(id){
+				console.log(id)
+				uni.navigateTo({
+					url:"../../orderpage/index/index?id="+id
+				})
+			}
 		}
 	}
 </script>

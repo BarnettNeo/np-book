@@ -45,6 +45,8 @@ exports.main = async (event, context) => {
 			address:event.address,
 			geopoint:new db.Geo.Point(event.longitude, event.latitude),
 			totalbook:0,
+			totalstar:0,
+			totalheart:0,
 			createtime:now,
 			updatetime:now,
 		})
@@ -95,6 +97,14 @@ exports.main = async (event, context) => {
 		.limit(10)
 		.get()
 		
+		//判断处理是否管理员
+		if(dbRes.data){
+			dbRes.data.forEach((item,index)=>{
+				item.owner == payload.openid ? dbRes.data[index]["isowner"] = true : dbRes.data[index]["isowner"] = false;
+				delete item.owner;
+			})
+		}
+		
 		
 	}else if(action=="listbygeo"){
 		// console.log(event.longitude, event.latitude,payload.openid)
@@ -129,10 +139,33 @@ exports.main = async (event, context) => {
 		delete dbRes.data[0]["owner"];
 		
 		dbRes.data[0]["isowner"] = payload?owner==payload.openid:false;
-		
+			
+		let checkInfo;
+		// 访问当前书房用户
 		const ownerinfo = await db.collection("users").field({openid:false}).where({
 			openid:dbCmd.eq(owner)
 		}).get();
+		checkInfo = ownerinfo;
+		
+		// 当前书房并非管理员
+		if(!dbRes.data[0].isowner){
+			const myinfo = await db.collection("users").field({openid:false}).where({
+				openid:dbCmd.eq(payload.openid)
+			}).get();
+			checkInfo = myinfo;
+		}
+		console.log('checkInfo',checkInfo.data[0])
+		if(checkInfo.data[0].heart){
+			checkInfo.data[0].heart.find((item)=>{
+				return dbRes.data[0]["isheart"] = item.id == event._id;
+			})
+		}
+		if(checkInfo.data[0].star){
+			checkInfo.data[0].star.find((item)=>{
+				return dbRes.data[0]["isstar"] = item.id == event._id;
+			})
+		}
+
 		
 		dbRes.data[0]['ownerinfo'] = ownerinfo.data[0];
 		

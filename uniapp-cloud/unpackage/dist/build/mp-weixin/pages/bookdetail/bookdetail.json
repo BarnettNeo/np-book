@@ -2,6 +2,8 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "uni-rate": "/node-modules/@dcloudio/uni-ui/lib/uni-rate/uni-rate",
+    "uni-link": "/node-modules/@dcloudio/uni-ui/lib/uni-link/uni-link",
     "pubpage": "/components/pubpage"
   }
 }

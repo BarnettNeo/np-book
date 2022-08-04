@@ -12,7 +12,7 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	@font-face {
 	  font-family: 'iconfont';  /* project id 534791 */
 	  src: url('//at.alicdn.com/t/font_534791_530fi78evgbhjjor.eot');
@@ -1617,7 +1617,7 @@
 	{
 		position: relative;
 		width: 100%;
-		min-height: 750rpx;
+		height: 750rpx;
 		display: flex;
 		color: #333;
 		margin: 20rpx 0;
@@ -1645,5 +1645,23 @@
 		height:30px;
 		line-height: 30px;
 		padding:0px 20rpx;
+	}
+	.np-follow {
+		position: absolute;
+		right: 20rpx;
+		top: 50%;
+		transform: translate(0, -50%);
+	
+		.uni-tag {
+			background-color: #fff;
+			border-color: #00aaff;
+			color: #00aaff;
+		}
+	
+		.uni-tag--default--inverted {
+			background-color: #00aaff;
+			border-color: #00aaff;
+			color: #fff;
+		}
 	}
 </style>

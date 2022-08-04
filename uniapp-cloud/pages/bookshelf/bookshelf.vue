@@ -5,14 +5,17 @@
 			<pubshare v-if="showShareMenu" @selected="onShareSelected" @dismiss="onShareDismiss"></pubshare>
 
 			<view class="User_info">
-				<view class="User_avatarUrl">
-					<image :src="shelfInfo.ownerinfo.avatarUrl"></image>
+				<view @click="openPage(shelfInfo.ownerinfo._id)" style="display: flex;position: relative;">
+					<view class="User_avatarUrl">
+						<image :src="shelfInfo.ownerinfo.avatarUrl"></image>
+					</view>
+					<view class="User_text">
+						<text class="nickName">{{shelfInfo.ownerinfo.nickName}}</text>
+					</view>
 				</view>
-				<view class="User_text">
-					<text class="nickName">{{shelfInfo.ownerinfo.nickName}}</text>
-				</view>
-				<view v-if="follow.isExi" class="follow">
-					<uni-tag :circle="true" :inverted="follow.inverted" :text="follow.text" @click="setFollow()" />
+
+				<view v-if="isExi">
+					<pubfolow ref="pubfolow" :user_id="shelfInfo.ownerinfo._id"></pubfolow>
 				</view>
 			</view>
 			<view class="np-address">
@@ -32,7 +35,7 @@
 			<view style="justify-content: start;display: flex;flex-wrap: wrap;padding-bottom: 70px;position: relative;">
 				<view v-if="books" style="width: 100%;display: flex;flex-wrap: wrap;">
 					<view v-for="item in books" :key="item._id"
-						style="min-width: 33.3%;flex: 1;padding:10px;margin-bottom: 10px;">
+						style="width: 33.3%;float: left;padding:10px;margin-bottom: 10px;">
 						<bookcell :data="item"></bookcell>
 						<view v-if="isEditing" @click="btnDeleteBook" :data-id="item._id"
 							style='font-size:10px;text-align:center;margin-top: 10px;'><text
@@ -44,8 +47,8 @@
 				<view v-if="isBooksLen" ref="BooksLen"
 					style="position: absolute;width: 100%;text-align: center;top: 25%;">暂无图书</view>
 			</view>
-
 		</view>
+		<!-- 管理员底部编辑 -->
 		<view v-if="shelfInfo.isowner" slot="tabSection" style="padding:10px;">
 			<view v-if="!isEditing"
 				style="background-color: #00aaff;width: 100%;height: 50px;border-radius: 25px;display: flex;line-height: 50px;color:#fff;justify-content: space-between;">
@@ -62,6 +65,19 @@
 				<view></view>
 			</view>
 		</view>
+		
+		<!-- 公共底部 -->
+		<view slot="footerSection">
+			<pubfooter 
+			:shelfid="shelfid"
+			:heart="shelfInfo.heart"
+			:star="shelfInfo.star"
+			:isheart="shelfInfo.isheart"
+			:isstar="shelfInfo.isstar"
+			:totalheart="shelfInfo.totalheart"
+			:totalstar="shelfInfo.totalstar"
+			></pubfooter>
+		</view>
 	</pubpage>
 </template>
 
@@ -70,7 +86,9 @@
 	import timeApi from "../../common/timeApi.js"
 	import pubpage from "../../components/pubpage.vue"
 	import pubshare from "../../components/pubshare.vue"
-
+	import pubfooter from "../../components/pubfooter.vue"
+	import pubfolow from "../../components/pubfolow.vue"
+	
 	import bookcell from "../../components/pub-ui/bookcell.vue"
 	import {
 		mapState,
@@ -83,7 +101,9 @@
 		components: {
 			pubpage,
 			bookcell,
-			pubshare
+			pubshare,
+			pubfooter,
+			pubfolow
 		},
 		data() {
 			return {
@@ -96,18 +116,11 @@
 				isBooksLen: false,
 				isCanvas: false,
 				books: [],
-				follow: {
-					isExi: false,
-					loading: true,
-					inverted: false,
-					text: '未关注',
-				}
-
+				isExi:false,
+				
 			}
 		},
-		computed: {
-			...mapGetters(['token']),
-		},
+
 		watch: {
 			books(cur) {
 				cur < 1 ? this.isBooksLen = true : this.isBooksLen = false;
@@ -115,42 +128,22 @@
 			'shelfInfo.isowner': {
 				handler: function(cur) {
 					// console.log('权限',cur)
-					cur ? this.follow.isExi = false : this.follow.isExi = true;
-
-					if (!cur) {
-						// 非管理员检测关注
-						cloudApi.call({
-							name: "updataFolow",
-							data: {
-								action: "get",
-								token: this.token,
-								_id: this.shelfid
-							},
-							success: (res) => {
-								console.log(res)
-								this.follow.loading = false;
-								this.follow.inverted = res.result.state;
-							}
-						})
-					}
-				}
-			},
-			'follow.inverted': {
-				handler: function(cur) {
-					cur ? this.follow.text = '已关注' : this.follow.text = '未关注';
+					cur ? this.isExi = false : this.isExi = true;		
 				}
 			}
+
 		},
 		onLoad(options) {
 			this.shelfid = options.id;
+			// console.log(options.id)
 			if (!this.shelfid) uni.navigateBack();
 
 			this.getShelfInfo();
 			this.requestBookList();
 		},
-		onReachBottom() {
-			this.requestBookList(this.books[this.books.length - 1]._id);
-		},
+		// onReachBottom() {
+		// 	this.requestBookList(this.books[this.books.length - 1]._id);
+		// },
 		onShareAppMessage() {
 			return {
 				title: this.title,
@@ -158,63 +151,16 @@
 			}
 		},
 		methods: {
-			// 关注
-			setFollow() {
-				if (this.follow.loading) return
-				// this.follow.inverted = !this.follow.inverted;
-				if (!this.follow.inverted) {
-					this.follow.loading = true;
-					cloudApi.call({
-						name: "updataFolow",
-						data: {
-							action: "add",
-							token: this.token,
-							_id: this.shelfid
-						},
-						success: (res) => {
-							console.log(res)
-							this.follow.loading = false;
-							this.follow.inverted = res.result.state;
-							uni.showModal({
-								content: '关注成功',
-								showCancel: false
-							});
-						},
-					})
-				} else {
-					// 取消关注
-					this.follow.loading = true;
-					uni.showModal({
-						content: "确定取消关注吗?",
-						success: (res) => {
-							if (res.confirm) {
-								this.follow.loading = true;
-								cloudApi.call({
-									name: "updataFolow",
-									data: {
-										action: "delete",
-										token: this.token,
-										_id: this.shelfid
-									},
-									success: (res) => {
-										console.log(res)
-										this.follow.loading = false;
-										this.follow.inverted = res.result.state;
-										uni.showModal({
-											content: '取消关注成功',
-											showCancel: false
-										});
-									}
-								})
-							}
-						},
-						complete: () => {
-							this.follow.loading = false;
-						}
+			// 进入客态页
+			openPage(id){
+				// console.log(id,this.isowner)
+				if(!this.shelfInfo.isowner){
+					uni.navigateTo({
+						url:"../../orderpage/index/index?id="+id
 					})
 				}
-			},
 
+			},
 			// 生成海报
 			drawPoster() {
 				this.isCanvas = true;
@@ -349,15 +295,18 @@
 
 					})
 			},
+			// 底部分享
 			onShareSelected(index) {
+				console.log('分享点击',index)
 				if (index == 1) {
 					this.drawPoster();
 				}
 			},
 			onShareDismiss() {
+				console.log('取消')
 				this.showShareMenu = false;
 			},
-			// 请求书房列表
+			// 请求当前书房信息
 			getShelfInfo() {
 				cloudApi.call({
 					name: "bookshelfs",
@@ -369,14 +318,11 @@
 						console.log(res.result);
 						this.shelfInfo = res.result;
 						this.shelfInfo.createtime ?
-							this.shelfInfo.createtime = timeApi.timestampToTime(this.shelfInfo.createtime) :
-							this.shelfInfo.createtime = '';
+						this.shelfInfo.createtime = timeApi.timestampToTime(this.shelfInfo.createtime) :
+						this.shelfInfo.createtime = '';
 						// console.log('时间戳',this.shelfInfo.createtime)
 					}
 				})
-
-
-
 			},
 			// 请求书籍列表
 			requestBookList(start = 0) {
@@ -447,17 +393,17 @@
 								isbn: res.result,
 								shelfid: this.shelfid,
 							},
-							success: (res) => {
+							success: async (res) => {
 								console.log('doubanbook', res)
 
 								// 检查数据库是否已存在
 								if (res.result.state) {
-									cloudApi.call({
+									await cloudApi.call({
 										name: "books",
 										data: {
 											action: "add",
 											shelfid: this.shelfid,
-											isbnid: res.result._id,
+											isbnid: res.result.resData._id,
 										}
 									})
 								}else{
@@ -466,11 +412,11 @@
 										showCancel: false
 									});
 								}
+								this.requestBookList();
 							}
 						})
 
 
-						this.requestBookList();
 					},
 
 					fail: (err) => {
@@ -508,7 +454,6 @@
 		width: auto;
 		margin: 30rpx 0;
 		padding-left: 30rpx;
-		display: flex;
 		position: relative;
 
 		.User_avatarUrl {
@@ -533,24 +478,7 @@
 			}
 		}
 
-		.follow {
-			position: absolute;
-			right: 20rpx;
-			top: 50%;
-			transform: translate(0, -50%);
 
-			.uni-tag {
-				background-color: #fff;
-				border-color: #00aaff;
-				color: #00aaff;
-			}
-
-			.uni-tag--default--inverted {
-				background-color: #00aaff;
-				border-color: #00aaff;
-				color: #fff;
-			}
-		}
 	}
 
 	.textTitle {
@@ -575,4 +503,5 @@
 		color: #666;
 		text-align: right;
 	}
+
 </style>

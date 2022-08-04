@@ -91,6 +91,63 @@
             
         }
         
+        ,{
+            "path" : "pages/heart/heart",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "喜欢",
+                "enablePullDownRefresh": true,
+                "navigationStyle":"default",
+                "navigationBarBackgroundColor":"#fff",
+                "navigationBarTextStyle":"black"
+            }
+            
+        }
+        ,{
+            "path" : "pages/star/star",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "收藏",
+                "enablePullDownRefresh": true,
+                "navigationStyle":"default",
+                "navigationBarBackgroundColor":"#fff",
+                "navigationBarTextStyle":"black"
+            }
+            
+        }
+        ,{
+            "path" : "orderpage/index/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "orderpage/orperson/orperson",
+            "style" :                                                                                    
+           {
+               "navigationBarTitleText": "书房",
+               "enablePullDownRefresh": true,
+               "navigationStyle":"default",
+               "navigationBarBackgroundColor":"#fff",
+               "navigationBarTextStyle":"black"
+           }
+            
+        }
+        ,{
+            "path" : "orderpage/orstar/orstar",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "收藏",
+                "enablePullDownRefresh": true,
+                "navigationStyle":"default",
+                "navigationBarBackgroundColor":"#fff",
+                "navigationBarTextStyle":"black"
+            }
+            
+        }
     ],
 	"tabBar":{
 		"selectedColor": "#00aaff",

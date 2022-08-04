@@ -1,0 +1,85 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 200rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50rpx;
+}
+.text-area {
+  display: flex;
+  justify-content: center;
+}
+.title {
+  font-size: 36rpx;
+  color: #8f8f94;
+}
+.cont-item {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: relative;
+}
+.cont-item .tit {
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  padding: 0px 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.cont-item .tit .name {
+  flex: 1;
+  display: flex;
+}
+.cont-item .tit .name .text-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  max-width: 500rpx;
+  display: inline-block;
+}
+.cont-item .tit .name .totalbook {
+  color: #999;
+  font-size: 12px;
+  margin-left: 5px;
+  display: inline-block;
+}
+.cont-item .user_info {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rpx 0;
+}
+.cont-item .user_info .user {
+  display: flex;
+  align-items: center;
+}
+.cont-item .user_info .user image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin: 0 10rpx;
+}
+.cont-item .user_info .user text {
+  margin-left: 20rpx;
+}
+.star_info {
+  position: absolute;
+  bottom: 25rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.star_info text {
+  margin-left: 10rpx;
+}
+

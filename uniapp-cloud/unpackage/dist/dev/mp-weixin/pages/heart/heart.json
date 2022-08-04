@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "喜欢",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "pubheart": "/components/pubheart"
+  }
+}

@@ -5,7 +5,6 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "home-unicloud-db-default": "/pages/home/home-unicloud-db-default",
-    "unicloud-db": "/node-modules/@dcloudio/uni-cli-shared/components/unicloud-db"
+    "pubheart": "/components/pubheart"
   }
 }

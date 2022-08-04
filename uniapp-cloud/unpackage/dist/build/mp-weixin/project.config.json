@@ -7,14 +7,16 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
+    "ignoreUploadUnusedFiles": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "minified": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.7",
+  "libVersion": "2.25.2",
   "appid": "wxaaf200a34bd1c5e9",
   "projectname": "np-book",
   "condition": {},

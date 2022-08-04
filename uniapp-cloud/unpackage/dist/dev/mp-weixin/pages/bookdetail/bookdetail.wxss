@@ -1,14 +1,20 @@
 .detail-score.data-v-990c41f4 {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  margin: 20rpx 0;
+  margin: 0 0 20rpx;
   padding: 20rpx 0;
+  padding-left: 20rpx;
 }
 .detail-line.data-v-990c41f4 {
   margin-top: 10rpx;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-decoration: underline;
+  display: block;
+}
+.score.data-v-990c41f4 {
+  font-size: 55rpx;
+  line-height: 50rpx;
+  margin: 0 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
