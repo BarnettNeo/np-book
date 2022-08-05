@@ -1,5 +1,6 @@
 # np-book
-
+### 预览
+![](README_files/home.jpg)![](README_files/book.jpg)![](README_files/index.jpg)
 ### 欢乐书刊
 ##### 一款用于记录和分享个人喜欢的书刊小程序。包含isbn码识别、收藏、分类书刊等功能，想发现更多别人喜欢的书刊吗~，通过以下方式体验：
 

@@ -2501,9 +2501,9 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 10:
-/*!****************************************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/pages.json?{"type":"origin-pages-json"} ***!
-  \****************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/pages.json?{"type":"origin-pages-json"} ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2513,9 +2513,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 11:
-/*!***************************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/pages.json?{"type":"stat"} ***!
-  \***************************************************************************/
+/*!********************************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/pages.json?{"type":"stat"} ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2525,9 +2525,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 156:
-/*!*****************************************************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/node_modules/@dcloudio/uni-ui/lib/uni-icons/icons.js ***!
-  \*****************************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/node_modules/@dcloudio/uni-ui/lib/uni-icons/icons.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3831,9 +3831,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 18:
-/*!***************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/store/index.js ***!
-  \***************************************************************/
+/*!********************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/store/index.js ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5274,9 +5274,9 @@ module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\
 /***/ }),
 
 /***/ 26:
-/*!**********************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/common/currentUser.js ***!
-  \**********************************************************************/
+/*!***************************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/common/currentUser.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5344,9 +5344,9 @@ module.exports = {
 /***/ }),
 
 /***/ 27:
-/*!*******************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/common/cloudApi.js ***!
-  \*******************************************************************/
+/*!************************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/common/cloudApi.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11901,9 +11901,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 5:
-/*!***********************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/pages.json ***!
-  \***********************************************************/
+/*!****************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/pages.json ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11924,9 +11924,9 @@ internalMixin(Vue);
         "127.0.0.1",
         "192.168.31.241"
     ],
-    "debugPort": 54923,
+    "debugPort": 61299,
     "initialLaunchType": "local",
-    "servePort": 54924,
+    "servePort": 61300,
     "skipFiles": [
         "<node_internals>/**/*.js",
         "D:/HBuilderX/plugins/unicloud/**/*.js"
@@ -11949,9 +11949,9 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ 8);
 /***/ }),
 
 /***/ 76:
-/*!******************************************************************!*\
-  !*** E:/github-me/uniapp-project/uniapp-cloud/common/timeApi.js ***!
-  \******************************************************************/
+/*!***********************************************************!*\
+  !*** E:/github-me/np-book/uniapp-cloud/common/timeApi.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
