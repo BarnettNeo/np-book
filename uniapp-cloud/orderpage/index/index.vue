@@ -5,6 +5,20 @@
 				<image @click="updateUserProfile" :src="orderUser.avatarUrl?orderUser.avatarUrl:'/static/unlogin_avatarUrl.png'" mode="widthFix"></image>
 				<view class="User_text">
 					<view :style="{'color':orderUser.bgImg?'#fff':'#000'}">{{orderUser.nickName?orderUser.nickName:'昵称'}}</view>
+					<view class="total-info" :style="{'color':orderUser.bgImg?'#fff':'#000'}">
+						<view @click="openFolow('folow')">
+							<text>{{orderUser.folow.length?orderUser.folow.length:0}}</text>
+							<text>关注</text>
+						</view>
+						<view style="margin: 0 30rpx;" @click="openFolow('fans')">
+							<text>{{orderUser.fansLength?orderUser.fansLength:0}}</text>
+							<text>粉丝</text>
+						</view>
+						<view>
+							<text>{{orderUser.total?orderUser.total:0}}</text>
+							<text>获赞与收藏</text>
+						</view>
+					</view>
 				</view>
 				<view 
 				class="uni-file" 
@@ -78,7 +92,7 @@
 						user_id: this.user_id
 					},
 					success: (res) => {
-						// console.log('当前用户',res)
+						console.log('当前用户',res)
 						this.orderUser = res.result;
 					}
 				})
@@ -100,6 +114,23 @@
 					
 				
 			},	
+			
+			// 关注
+			openFolow(id){
+				console.log(id)
+				if(id == 'folow'){
+					uni.navigateTo({
+						url:"../orfolow/orfolow?id=" + this.orderUser.openid
+					})
+					return
+				}
+				if(id == 'fans'){
+					uni.navigateTo({
+						url:"../orfans/orfans?id=" + this.user_id
+					})
+					return
+				}
+			},
 		}
 	}
 </script>
@@ -129,7 +160,8 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-
+				justify-content: space-between;
+				padding: 30rpx 0 20rpx;
 				z-index:2;
 				view{
 					margin: 10rpx 0;
@@ -138,6 +170,18 @@
 					padding: 0 5px;
 					border-radius: 5px;
 					background-color: #00aaff;
+				}
+			}
+			.total-info{
+				font-size: 30rpx;
+				view{
+					display: inline-flex;
+					flex-direction: column;
+					align-items: center;
+					margin: 0;
+					text{
+						display: block;
+					}
 				}
 			}
 		

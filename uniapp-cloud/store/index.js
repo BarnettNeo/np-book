@@ -9,7 +9,8 @@ const store = new Vuex.Store({
 		userInfo:'',
 		isLogin:false,
 		folow:'',
-		bgImg:''
+		bgImg:'',
+		fans:''
 	},
     mutations: {
 		updateToken(state,newValue){
@@ -20,9 +21,18 @@ const store = new Vuex.Store({
 			if(newValue && newValue.folow){
 				state.folow = newValue.folow;
 			}
+			if(newValue && newValue.bgImg){
+				state.bgImg = newValue.bgImg;
+			}
+			if(newValue && newValue.fans){
+				state.fans = newValue.fans;
+			}
 		},
 		updateFolow(state, newValue){
 			state.folow = newValue;
+		},
+		updateFans(state, newValue){
+			state.fans = newValue;
 		},
 		updateBgImg(state, newValue){
 			state.bgImg = newValue;

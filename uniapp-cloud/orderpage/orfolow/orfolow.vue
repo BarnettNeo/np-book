@@ -24,28 +24,30 @@
 		},
 		data() {
 			return {
+				folow:[],
+				id:''
 			}
 		},
 		computed:{
-		   ...mapState(['folow']),
-		   ...mapState(['token']),
+		},
+		onLoad(option) {
+			if(option)this.id = option.id
 		},
 		onShow() {
 			cloudApi.call({
-				name:"updateFolow",
+				name:"getOrderUesr",
 				data:{
-					action:'getList',
-					code:this.token
+					action:'folowList',
+					id:this.id
 				},
 				success: (res) => {
 					console.log(res)
-					this.updateFolow(res.result.folow)
+					this.folow = res.result.folow;
 				}
 			})
 			return
 		},
 		methods: {
-			...mapMutations(['updateFolow']),
 			openPage(id){
 				console.log(id)
 				uni.navigateTo({

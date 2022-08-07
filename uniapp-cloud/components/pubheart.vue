@@ -43,6 +43,7 @@
 		  </view>
 		  <!-- <view v-if="loading" class="loading">加载中...</view> -->
 		</unicloud-db>
+		<view class="tips" v-if="Tips">{{tipsText}}</view>
 	</view>
 </template>
 
@@ -53,6 +54,12 @@
 	
 	export default {
 		name:"pubheart",
+		props:{
+			tipsText:{
+				type:String,
+				default:'暂无数据'
+			}
+		},
 		data() {
 			return {				
 				options: {}, // 插槽不能访问外面的数据，通过此参数传递, 不支持传递函数
@@ -62,7 +69,16 @@
 				heart:{
 					loading:false,
 				},
+				Tips:false,
 				dbData:[] // 存本地用来响应式喜欢状态
+			}
+		},
+		watch:{
+			'dbData':{
+				handler: function(cur) {
+					cur.length<1?this.Tips=true:this.Tips=false; 
+				},
+				immediate:true
 			}
 		},
 		computed:{
@@ -78,8 +94,10 @@
 						desc: '信息给哥交出来',
 						success: async (res) => {
 							let _obj = {...this.userInfo,...res.userInfo}
-							this.setUserInfo(_obj);
-							loginUser.updateUserInfo(_obj);
+							loginUser.updateUserInfo(_obj).then((res)=>{
+								this.setUserInfo(res.result);
+								console.log(this.userInfo)
+							});
 							// this.setUserInfo(await loginUser.login())
 							uni.navigateTo({
 								url:"../../pages/bookshelf/bookshelf?id="+_id
@@ -271,5 +289,11 @@
 		text{
 			margin-left: 10rpx;
 		}
+	}
+	.tips{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
 	}
 </style>

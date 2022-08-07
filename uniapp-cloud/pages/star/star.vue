@@ -1,6 +1,6 @@
 <template>
 	<view class="star-page" style="padding: 10px;">
-		<pubheart ref="pubheart"></pubheart>
+		<pubheart ref="pubheart" :tipsText="'暂无收藏哦'"></pubheart>
 		
 	</view>
 
@@ -16,7 +16,6 @@
 	export default {
 		data() {
 			return {				
-
 			}
 		},
 

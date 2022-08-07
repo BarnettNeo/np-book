@@ -88,6 +88,18 @@ exports.main = async (event, context) => {
 			openid:dbCmd.eq(payload.openid),
 		}).limit(1).get()
 		return ownerinfo.data[0]
+	}else if (action=="getFansList"){
+		// 粉丝列表
+		const ownerinfo = await db.collection("users").field({_id:true}).where({
+			openid:dbCmd.eq(payload.openid),
+		}).limit(1).get()
+		let ownerId = ownerinfo.data[0]._id;
+		const fans = await db.collection("users")
+		.field({openid:false,folow:false,heart:false,star:false,})
+		.where({
+			"folow.id":dbCmd.eq(ownerId)
+		}).get()
+		return fans.data
 	}
 	
 	//返回数据给客户端

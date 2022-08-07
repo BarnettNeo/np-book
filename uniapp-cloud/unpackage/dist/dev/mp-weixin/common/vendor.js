@@ -2508,7 +2508,7 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": [{ "path": "pages/home/home", "style": { "navigationBarTitleText": "首页", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "pages/books/books", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/index/index", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/gear/gear", "style": { "navigationBarTitleText": "设置" } }, { "path": "pages/person/person", "style": { "navigationBarTitleText": "个人中心" } }, { "path": "pages/map/map", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/createbookshelf/createbookshelf", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/bookshelf/bookshelf", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/bookdetail/bookdetail", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/folow/folow", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/heart/heart", "style": { "navigationBarTitleText": "喜欢", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "pages/star/star", "style": { "navigationBarTitleText": "收藏", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "orderpage/index/index", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "orderpage/orperson/orperson", "style": { "navigationBarTitleText": "书房", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "orderpage/orstar/orstar", "style": { "navigationBarTitleText": "收藏", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }], "tabBar": { "selectedColor": "#00aaff", "list": [{ "iconPath": "static/tabicons/home_0.png", "selectedIconPath": "static/tabicons/home_1.png", "pagePath": "pages/home/home", "text": "首页" }, { "iconPath": "static/tabicons/forum_0.png", "selectedIconPath": "static/tabicons/forum_1.png", "pagePath": "pages/books/books", "text": "书库" }, { "iconPath": "static/tabicons/me_0.png", "selectedIconPath": "static/tabicons/me_1.png", "pagePath": "pages/index/index", "text": "我" }] }, "globalStyle": { "navigationStyle": "custom", "navigationBarTextStyle": "#fff", "selectedColor": "00aaff", "navigationBarTitleText": "uni-app" }, "easycom": { "autoscan": true, "custom": { "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue" } } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": [{ "path": "pages/home/home", "style": { "navigationBarTitleText": "首页", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "pages/books/books", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/index/index", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/gear/gear", "style": { "navigationBarTitleText": "设置" } }, { "path": "pages/person/person", "style": { "navigationBarTitleText": "个人中心" } }, { "path": "pages/map/map", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/createbookshelf/createbookshelf", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/bookshelf/bookshelf", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/bookdetail/bookdetail", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/folow/folow", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "pages/heart/heart", "style": { "navigationBarTitleText": "喜欢", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "pages/star/star", "style": { "navigationBarTitleText": "收藏", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "orderpage/index/index", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "orderpage/orperson/orperson", "style": { "navigationBarTitleText": "书房", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "orderpage/orstar/orstar", "style": { "navigationBarTitleText": "收藏", "enablePullDownRefresh": true, "navigationStyle": "default", "navigationBarBackgroundColor": "#fff", "navigationBarTextStyle": "black" } }, { "path": "pages/fans/fans", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "orderpage/orfans/orfans", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }, { "path": "orderpage/orfolow/orfolow", "style": { "navigationBarTitleText": "", "enablePullDownRefresh": false } }], "tabBar": { "selectedColor": "#00aaff", "list": [{ "iconPath": "static/tabicons/home_0.png", "selectedIconPath": "static/tabicons/home_1.png", "pagePath": "pages/home/home", "text": "首页" }, { "iconPath": "static/tabicons/forum_0.png", "selectedIconPath": "static/tabicons/forum_1.png", "pagePath": "pages/books/books", "text": "书库" }, { "iconPath": "static/tabicons/me_0.png", "selectedIconPath": "static/tabicons/me_1.png", "pagePath": "pages/index/index", "text": "我" }] }, "globalStyle": { "navigationStyle": "custom", "navigationBarTextStyle": "#fff", "selectedColor": "00aaff", "navigationBarTitleText": "uni-app" }, "easycom": { "autoscan": true, "custom": { "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue" } } };exports.default = _default;
 
 /***/ }),
 
@@ -2524,7 +2524,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 156:
+/***/ 164:
 /*!**********************************************************************************************!*\
   !*** E:/github-me/np-book/uniapp-cloud/node_modules/@dcloudio/uni-ui/lib/uni-icons/icons.js ***!
   \**********************************************************************************************/
@@ -3849,7 +3849,8 @@ var store = new _vuex.default.Store({
     userInfo: '',
     isLogin: false,
     folow: '',
-    bgImg: '' },
+    bgImg: '',
+    fans: '' },
 
   mutations: {
     updateToken: function updateToken(state, newValue) {
@@ -3860,9 +3861,18 @@ var store = new _vuex.default.Store({
       if (newValue && newValue.folow) {
         state.folow = newValue.folow;
       }
+      if (newValue && newValue.bgImg) {
+        state.bgImg = newValue.bgImg;
+      }
+      if (newValue && newValue.fans) {
+        state.fans = newValue.fans;
+      }
     },
     updateFolow: function updateFolow(state, newValue) {
       state.folow = newValue;
+    },
+    updateFans: function updateFans(state, newValue) {
+      state.fans = newValue;
     },
     updateBgImg: function updateBgImg(state, newValue) {
       state.bgImg = newValue;
@@ -5183,7 +5193,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 204:
+/***/ 212:
 /*!************************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/index.js ***!
   \************************************************************************/
@@ -5192,16 +5202,16 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en.json */ 205);
-var _en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./en.json */ 205, 1);
-/* harmony import */ var _es_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./es.json */ 206);
-var _es_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./es.json */ 206, 1);
-/* harmony import */ var _fr_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fr.json */ 207);
-var _fr_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fr.json */ 207, 1);
-/* harmony import */ var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./zh-Hans.json */ 208);
-var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hans.json */ 208, 1);
-/* harmony import */ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zh-Hant.json */ 209);
-var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hant.json */ 209, 1);
+/* harmony import */ var _en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en.json */ 213);
+var _en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./en.json */ 213, 1);
+/* harmony import */ var _es_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./es.json */ 214);
+var _es_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./es.json */ 214, 1);
+/* harmony import */ var _fr_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fr.json */ 215);
+var _fr_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fr.json */ 215, 1);
+/* harmony import */ var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./zh-Hans.json */ 216);
+var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hans.json */ 216, 1);
+/* harmony import */ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zh-Hant.json */ 217);
+var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hant.json */ 217, 1);
 
 
 
@@ -5218,7 +5228,7 @@ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpac
 
 /***/ }),
 
-/***/ 205:
+/***/ 213:
 /*!***********************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/en.json ***!
   \***********************************************************************/
@@ -5229,7 +5239,7 @@ module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"Success\",\"u
 
 /***/ }),
 
-/***/ 206:
+/***/ 214:
 /*!***********************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/es.json ***!
   \***********************************************************************/
@@ -5240,7 +5250,7 @@ module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\
 
 /***/ }),
 
-/***/ 207:
+/***/ 215:
 /*!***********************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/fr.json ***!
   \***********************************************************************/
@@ -5251,7 +5261,7 @@ module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\
 
 /***/ }),
 
-/***/ 208:
+/***/ 216:
 /*!****************************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hans.json ***!
   \****************************************************************************/
@@ -5262,7 +5272,7 @@ module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\
 
 /***/ }),
 
-/***/ 209:
+/***/ 217:
 /*!****************************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hant.json ***!
   \****************************************************************************/
@@ -5325,11 +5335,14 @@ function getUserInfo() {
 }
 
 function updateUserInfo(userInfo) {
-  _cloudApi.default.call({
+  return _cloudApi.default.call({
     name: "updateUserProfile",
     data: {
-      userInfo: userInfo } });
+      userInfo: userInfo },
 
+    success: function success(res) {
+      return res.result;
+    } });
 
 }
 
@@ -11924,9 +11937,9 @@ internalMixin(Vue);
         "127.0.0.1",
         "192.168.31.241"
     ],
-    "debugPort": 61299,
+    "debugPort": 60609,
     "initialLaunchType": "local",
-    "servePort": 61300,
+    "servePort": 60610,
     "skipFiles": [
         "<node_internals>/**/*.js",
         "D:/HBuilderX/plugins/unicloud/**/*.js"

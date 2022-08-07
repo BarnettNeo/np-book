@@ -1,27 +1,32 @@
 {
   "description": "项目配置文件。",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
   "setting": {
     "urlCheck": true,
     "es6": true,
+    "minified": true,
+    "coverView": false,
+    "postcss": false,
+    "enhance": false,
+    "showShadowRootInWxmlPanel": false,
+    "packNpmRelationList": [],
     "ignoreUploadUnusedFiles": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "minified": true
+    }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.25.2",
-  "appid": "wxaaf200a34bd1c5e9",
-  "projectname": "np-book",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "libVersion": "2.25.2",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wxaaf200a34bd1c5e9",
+  "projectname": "np-book"
 }

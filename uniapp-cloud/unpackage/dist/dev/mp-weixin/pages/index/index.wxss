@@ -15,14 +15,15 @@
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
-  margin: 20rpx;
+  margin: 20rpx 15rpx;
   z-index: 2;
   border: 1px solid #fff;
 }
 .main .User .User_text.data-v-57280228 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 30rpx 0 20rpx;
   z-index: 2;
 }
 .main .User .User_text view.data-v-57280228 {
@@ -32,6 +33,18 @@
   padding: 0 5px;
   border-radius: 5px;
   background-color: #00aaff;
+}
+.main .User .total-info.data-v-57280228 {
+  font-size: 30rpx;
+}
+.main .User .total-info view.data-v-57280228 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+.main .User .total-info view text.data-v-57280228 {
+  display: block;
 }
 .main .User .np-blockbutton.data-v-57280228 {
   margin: 20px auto ;

@@ -6,12 +6,27 @@
 				<view class="User_text">
 					<view :style="{'color':bgImg?'#fff':'#000'}">{{userInfo.nickName?userInfo.nickName:'昵称'}}</view>
 					<view v-if="!isLogin"><text class="np-tag">点击头像同步微信信息</text></view>
+					<view v-if="isLogin" class="total-info" :style="{'color':bgImg?'#fff':'#000'}">
+						<view @click="openFolow('folow')">
+							<text>{{userInfo.folow.length?userInfo.folow.length:0}}</text>
+							<text>关注</text>
+						</view>
+						<view style="margin: 0 30rpx;" @click="openFolow('fans')">
+							<text>{{userInfo.fansLength?userInfo.fansLength:0}}</text>
+							<text>粉丝</text>
+						</view>
+						<view>
+							<text>{{userInfo.total?userInfo.total:0}}</text>
+							<text>获赞与收藏</text>
+						</view>
+					</view>
 				</view>
 				<view class="uni-file" :style="bgImg?'background:url('+bgImg+');background-size: cover;background-repeat: no-repeat;':''">
 					<uni-tag text="设置背景" @click="chooseImage"
 					:circle="true"
 					custom-style="background-color: #00aaff; border-color: #00aaff; color: #fff;position: absolute;right: 10rpx;top: 50%;transform: translate(0, -50%);"></uni-tag>
 				</view>
+
 			</view>
 			<view class="user_info">
 				<view class="tit">我的信息</view>
@@ -53,10 +68,10 @@
 						type:'star',
 						text:'我的收藏'
 					},
-					{
-						type:'staff',
-						text:'我的关注'
-					},
+					// {
+					// 	type:'staff',
+					// 	text:'我的关注'
+					// },
 					{
 						type:'heart',
 						text:'我的喜欢'
@@ -75,11 +90,7 @@
 		   ...mapGetters(['token']),
 		},
 		async onLoad(){
-			this.setUserInfo(await loginUser.login())			
 			console.log('登录token返回',this.userInfo)
-			if(this.userInfo){
-				this.updateBgImg(this.userInfo.bgImg)
-			}
 			
 		},
 		onShow() {
@@ -91,27 +102,14 @@
 			updateUserProfile(){
 				if(!this.userInfo || !this.userInfo.avatarUrl){
 					uni.getUserProfile({
-						desc: '信息给哥交出来',
+						desc: '是否同意欢乐书刊获取信息',
 						success: async (res) => {
+							// console.log("授权返回",res)
 							let _obj = {...this.userInfo,...res.userInfo}
-							this.setUserInfo(_obj);
-							// 检测用户背景
-							if(!this.userInfo.bgImg){
-								cloudApi.call({
-									name:"uploadImage",
-									data:{
-										action:'get',
-										code:this.token,
-									},
-									success: (res) => {
-										this.updateBgImg(res.result)
-									}
-								})
-								
-							}
-							loginUser.updateUserInfo(_obj);
-							// this.setUserInfo(await loginUser.login())
-							console.log(this.userInfo)
+							loginUser.updateUserInfo(_obj).then((res)=>{
+								this.setUserInfo(res.result);
+								console.log(this.userInfo)
+							});
 						}
 					})
 				}
@@ -140,9 +138,9 @@
 						})
 						break;
 						case 'staff':
-						uni.navigateTo({
-							url:"../folow/folow"
-						})
+						// uni.navigateTo({
+						// 	url:"../folow/folow"
+						// })
 						break;
 						case 'gear':
 						uni.navigateTo({
@@ -151,6 +149,22 @@
 						break;
 					}
 					
+				}
+			},
+			
+			// 关注
+			openFolow(id){
+				if(id == 'folow'){
+					uni.navigateTo({
+						url:"../folow/folow"
+					})
+					return
+				}
+				if(id == 'fans'){
+					uni.navigateTo({
+						url:"../fans/fans"
+					})
+					return
 				}
 			},
 			
@@ -230,15 +244,15 @@
 				height:200rpx;
 				border-radius: 50%;
 				// background-color: #8F8F94;
-				margin: 20rpx;
+				margin: 20rpx 15rpx;
 				z-index:2;
 				border: 1px solid #fff;
 			}
 			.User_text{
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-
+				justify-content: space-between;
+				padding: 30rpx 0 20rpx;
 				z-index:2;
 				view{
 					margin: 10rpx 0;
@@ -247,6 +261,20 @@
 					padding: 0 5px;
 					border-radius: 5px;
 					background-color: #00aaff;
+				}
+
+			}
+			
+			.total-info{
+				font-size: 30rpx;
+				view{
+					display: inline-flex;
+					flex-direction: column;
+					align-items: center;
+					margin: 0;
+					text{
+						display: block;
+					}
 				}
 			}
 		

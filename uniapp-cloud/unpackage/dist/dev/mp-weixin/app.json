@@ -14,7 +14,10 @@
     "pages/star/star",
     "orderpage/index/index",
     "orderpage/orperson/orperson",
-    "orderpage/orstar/orstar"
+    "orderpage/orstar/orstar",
+    "pages/fans/fans",
+    "orderpage/orfans/orfans",
+    "orderpage/orfolow/orfolow"
   ],
   "subPackages": [],
   "window": {
@@ -51,6 +54,5 @@
       "desc": "请允许我们访问您的位置信息以推荐附近的书友"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

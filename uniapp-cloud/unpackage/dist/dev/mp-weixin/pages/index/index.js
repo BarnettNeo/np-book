@@ -98,10 +98,10 @@ var components
 try {
   components = {
     uniTag: function() {
-      return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag */ "node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-tag/uni-tag.vue */ 144))
+      return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag */ "node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-tag/uni-tag.vue */ 152))
     },
     uniIcons: function() {
-      return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 151))
+      return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 159))
     }
   }
 } catch (e) {
@@ -191,10 +191,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _currentUser = _interopRequireDefault(__webpack_require__(/*! ../../common/currentUser.js */ 26));
 
 var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/cloudApi.js */ 27));
-var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
@@ -213,10 +228,10 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
         type: 'star',
         text: '我的收藏' },
 
-      {
-        type: 'staff',
-        text: '我的关注' },
-
+      // {
+      // 	type:'staff',
+      // 	text:'我的关注'
+      // },
       {
         type: 'heart',
         text: '我的喜欢' },
@@ -234,12 +249,8 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
   (0, _vuex.mapGetters)(['isLogin'])),
   (0, _vuex.mapGetters)(['token'])),
 
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.t0 =
-              _this;_context.next = 3;return _currentUser.default.login();case 3:_context.t1 = _context.sent;_context.t0.setUserInfo.call(_context.t0, _context.t1);
-              console.log('登录token返回', _this.userInfo);
-              if (_this.userInfo) {
-                _this.updateBgImg(_this.userInfo.bgImg);
-              }case 7:case "end":return _context.stop();}}}, _callee);}))();
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              console.log('登录token返回', _this.userInfo);case 1:case "end":return _context.stop();}}}, _callee);}))();
 
   },
   onShow: function onShow() {
@@ -251,27 +262,14 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
     updateUserProfile: function updateUserProfile() {var _this2 = this;
       if (!this.userInfo || !this.userInfo.avatarUrl) {
         uni.getUserProfile({
-          desc: '信息给哥交出来',
+          desc: '是否同意欢乐书刊获取信息',
           success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res) {var _obj;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                      // console.log("授权返回",res)
                       _obj = _objectSpread(_objectSpread({}, _this2.userInfo), res.userInfo);
-                      _this2.setUserInfo(_obj);
-                      // 检测用户背景
-                      if (!_this2.userInfo.bgImg) {
-                        _cloudApi.default.call({
-                          name: "uploadImage",
-                          data: {
-                            action: 'get',
-                            code: _this2.token },
-
-                          success: function success(res) {
-                            _this2.updateBgImg(res.result);
-                          } });
-
-
-                      }
-                      _currentUser.default.updateUserInfo(_obj);
-                      // this.setUserInfo(await loginUser.login())
-                      console.log(_this2.userInfo);case 5:case "end":return _context2.stop();}}}, _callee2);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+                      _currentUser.default.updateUserInfo(_obj).then(function (res) {
+                        _this2.setUserInfo(res.result);
+                        console.log(_this2.userInfo);
+                      });case 2:case "end":return _context2.stop();}}}, _callee2);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
 
 
       }
@@ -300,9 +298,9 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
 
             break;
           case 'staff':
-            uni.navigateTo({
-              url: "../folow/folow" });
-
+            // uni.navigateTo({
+            // 	url:"../folow/folow"
+            // })
             break;
           case 'gear':
             uni.navigateTo({
@@ -311,6 +309,22 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
             break;}
 
 
+      }
+    },
+
+    // 关注
+    openFolow: function openFolow(id) {
+      if (id == 'folow') {
+        uni.navigateTo({
+          url: "../folow/folow" });
+
+        return;
+      }
+      if (id == 'fans') {
+        uni.navigateTo({
+          url: "../fans/fans" });
+
+        return;
       }
     },
 

@@ -1,1 +1,1 @@
-<view class="star-page data-v-15b18f74" style="padding:10px;"><pubheart vue-id="a07f5d00-1" data-ref="pubheart" class="data-v-15b18f74 vue-ref" bind:__l="__l"></pubheart></view>
+<view class="star-page data-v-15b18f74" style="padding:10px;"><pubheart vue-id="a07f5d00-1" tipsText="暂无收藏哦" data-ref="pubheart" class="data-v-15b18f74 vue-ref" bind:__l="__l"></pubheart></view>

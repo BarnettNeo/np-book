@@ -384,49 +384,57 @@
 
 			// 扫码添加图书
 			btnScan() {
-				uni.scanCode({
-					success: async (res) => {
-						console.log('扫码结果', res)
-						const isbnres = await cloudApi.call({
-							name: "ISBNQuery",
-							data: {
-								isbn: res.result,
-								shelfid: this.shelfid,
-							},
-							success: async (res) => {
-								console.log('doubanbook', res)
-
-								// 检查数据库是否已存在
-								if (res.result.state) {
-									await cloudApi.call({
-										name: "books",
+				uni.showModal({
+					content: "请您通过书籍后面的条形码进行扫码添加书籍哦",
+					success: (res) => {
+						if (res.confirm) {
+							uni.scanCode({
+								success: async (res) => {
+									console.log('扫码结果', res)
+									const isbnres = await cloudApi.call({
+										name: "ISBNQuery",
 										data: {
-											action: "add",
+											isbn: res.result,
 											shelfid: this.shelfid,
-											isbnid: res.result.resData._id,
+										},
+										success: async (res) => {
+											console.log('doubanbook', res)
+							
+											// 检查数据库是否已存在
+											if (res.result.state) {
+												await cloudApi.call({
+													name: "books",
+													data: {
+														action: "add",
+														shelfid: this.shelfid,
+														isbnid: res.result.resData._id,
+													}
+												})
+											}else{
+												uni.showModal({
+													content: res.result.msg,
+													showCancel: false
+												});
+											}
+											this.requestBookList();
 										}
 									})
-								}else{
+							
+							
+								},
+							
+								fail: (err) => {
+									console.log('扫码失败', err);
 									uni.showModal({
-										content: res.result.msg,
+										content: '扫码失败,请重新尝试',
 										showCancel: false
 									});
 								}
-								this.requestBookList();
-							}
-						})
-
-
+							})
+						}
 					},
-
-					fail: (err) => {
-						console.log('扫码失败', err);
-						uni.showModal({
-							content: '扫码失败,请重新尝试',
-							showCancel: false
-						});
-					}
 				})
+				
 			}
 		}
 	}

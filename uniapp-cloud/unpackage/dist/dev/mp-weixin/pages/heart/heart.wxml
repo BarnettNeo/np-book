@@ -1,1 +1,1 @@
-<view class="heart-page data-v-0ac2f2d4" style="padding:10px;"><pubheart vue-id="4d9be8b2-1" data-ref="pubheart" class="data-v-0ac2f2d4 vue-ref" bind:__l="__l"></pubheart></view>
+<view class="heart-page data-v-0ac2f2d4" style="padding:10px;"><pubheart vue-id="4d9be8b2-1" tipsText="暂无喜欢哦" data-ref="pubheart" class="data-v-0ac2f2d4 vue-ref" bind:__l="__l"></pubheart></view>

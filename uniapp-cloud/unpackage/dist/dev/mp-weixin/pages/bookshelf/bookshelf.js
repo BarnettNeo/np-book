@@ -229,7 +229,7 @@ var _timeApi = _interopRequireDefault(__webpack_require__(/*! ../../common/timeA
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubshare = function pubshare() {__webpack_require__.e(/*! require.ensure | components/pubshare */ "components/pubshare").then((function () {return resolve(__webpack_require__(/*! ../../components/pubshare.vue */ 166));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfooter = function pubfooter() {__webpack_require__.e(/*! require.ensure | components/pubfooter */ "components/pubfooter").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfooter.vue */ 173));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfolow = function pubfolow() {__webpack_require__.e(/*! require.ensure | components/pubfolow */ "components/pubfolow").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfolow.vue */ 180));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var bookcell = function bookcell() {__webpack_require__.e(/*! require.ensure | components/pub-ui/bookcell */ "components/pub-ui/bookcell").then((function () {return resolve(__webpack_require__(/*! ../../components/pub-ui/bookcell.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubshare = function pubshare() {__webpack_require__.e(/*! require.ensure | components/pubshare */ "components/pubshare").then((function () {return resolve(__webpack_require__(/*! ../../components/pubshare.vue */ 174));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfooter = function pubfooter() {__webpack_require__.e(/*! require.ensure | components/pubfooter */ "components/pubfooter").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfooter.vue */ 181));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfolow = function pubfolow() {__webpack_require__.e(/*! require.ensure | components/pubfolow */ "components/pubfolow").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfolow.vue */ 188));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var bookcell = function bookcell() {__webpack_require__.e(/*! require.ensure | components/pub-ui/bookcell */ "components/pub-ui/bookcell").then((function () {return resolve(__webpack_require__(/*! ../../components/pub-ui/bookcell.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -523,48 +523,56 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
 
     // 扫码添加图书
     btnScan: function btnScan() {var _this5 = this;
-      uni.scanCode({
-        success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(res) {var isbnres;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                    console.log('扫码结果', res);_context3.next = 3;return (
-                      _cloudApi.default.call({
-                        name: "ISBNQuery",
-                        data: {
-                          isbn: res.result,
-                          shelfid: _this5.shelfid },
+      uni.showModal({
+        content: "请您通过书籍后面的条形码进行扫码添加书籍哦",
+        success: function success(res) {
+          if (res.confirm) {
+            uni.scanCode({
+              success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(res) {var isbnres;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                          console.log('扫码结果', res);_context3.next = 3;return (
+                            _cloudApi.default.call({
+                              name: "ISBNQuery",
+                              data: {
+                                isbn: res.result,
+                                shelfid: _this5.shelfid },
 
-                        success: function () {var _success2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                                    console.log('doubanbook', res);
+                              success: function () {var _success2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                          console.log('doubanbook', res);
 
-                                    // 检查数据库是否已存在
-                                    if (!res.result.state) {_context2.next = 6;break;}_context2.next = 4;return (
-                                      _cloudApi.default.call({
-                                        name: "books",
-                                        data: {
-                                          action: "add",
-                                          shelfid: _this5.shelfid,
-                                          isbnid: res.result.resData._id } }));case 4:_context2.next = 7;break;case 6:
-
-
-
-                                    uni.showModal({
-                                      content: res.result.msg,
-                                      showCancel: false });case 7:
-
-
-                                    _this5.requestBookList();case 8:case "end":return _context2.stop();}}}, _callee2);}));function success(_x3) {return _success2.apply(this, arguments);}return success;}() }));case 3:isbnres = _context3.sent;case 4:case "end":return _context3.stop();}}}, _callee3);}));function success(_x2) {return _success.apply(this, arguments);}return success;}(),
+                                          // 检查数据库是否已存在
+                                          if (!res.result.state) {_context2.next = 6;break;}_context2.next = 4;return (
+                                            _cloudApi.default.call({
+                                              name: "books",
+                                              data: {
+                                                action: "add",
+                                                shelfid: _this5.shelfid,
+                                                isbnid: res.result.resData._id } }));case 4:_context2.next = 7;break;case 6:
 
 
 
+                                          uni.showModal({
+                                            content: res.result.msg,
+                                            showCancel: false });case 7:
+
+
+                                          _this5.requestBookList();case 8:case "end":return _context2.stop();}}}, _callee2);}));function success(_x3) {return _success2.apply(this, arguments);}return success;}() }));case 3:isbnres = _context3.sent;case 4:case "end":return _context3.stop();}}}, _callee3);}));function success(_x2) {return _success.apply(this, arguments);}return success;}(),
 
 
 
-        fail: function fail(err) {
-          console.log('扫码失败', err);
-          uni.showModal({
-            content: '扫码失败,请重新尝试',
-            showCancel: false });
 
+
+
+              fail: function fail(err) {
+                console.log('扫码失败', err);
+                uni.showModal({
+                  content: '扫码失败,请重新尝试',
+                  showCancel: false });
+
+              } });
+
+          }
         } });
+
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

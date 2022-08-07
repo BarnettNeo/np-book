@@ -1,15 +1,15 @@
 <template>
-	<pubpage title="关注">
-		<view slot="contentSection" class="main-folow">
-			<view v-if="folow">
-				<view class="folowList" v-for="item in folow" :key="item.id" @click="openPage(item.id)">
-					<image :src="item.url" mode="widthFix"></image>
+	<pubpage title="粉丝">
+		<view slot="contentSection" class="main-fans">
+			<view v-if="fans">
+				<view class="fansList" v-for="item in fans" :key="item._id" @click="openPage(item._id)">
+					<image :src="item.avatarUrl" mode="widthFix"></image>
 					<view class="User_text">
-						<view>{{item.name}}</view>
+						<view>{{item.nickName}}</view>
 					</view>
 				</view>
 			</view>
-			<view v-if="folow.length<1" class="folow_err">暂无关注</view>
+			<view v-if="fans.length<1" class="fans_err">暂无粉丝</view>
 		</view>
 	</pubpage>
 </template>
@@ -24,28 +24,28 @@
 		},
 		data() {
 			return {
+
 			}
 		},
 		computed:{
-		   ...mapState(['folow']),
+		   ...mapState(['fans']),
 		   ...mapState(['token']),
 		},
 		onShow() {
 			cloudApi.call({
 				name:"updateFolow",
 				data:{
-					action:'getList',
+					action:'getFansList',
 					code:this.token
 				},
 				success: (res) => {
 					console.log(res)
-					this.updateFolow(res.result.folow)
+					this.updateFans(res.result)
 				}
 			})
-			return
 		},
 		methods: {
-			...mapMutations(['updateFolow']),
+			...mapMutations(['updateFans']),
 			openPage(id){
 				console.log(id)
 				uni.navigateTo({
@@ -57,14 +57,14 @@
 </script>
 
 <style lang="less" scoped>
-	.main-folow{
+	.main-fans{
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 		height: 100%;
 		overflow-y: auto;
 		position: relative;
-		.folowList{
+		.fansList{
 			background-color: #fff;
 			position: relative;
 			display: flex; 
@@ -102,7 +102,7 @@
 				width: 90%;
 			}
 		}
-		.folow_err{
+		.fans_err{
 			position: absolute;
 			left: 50%;
 			transform: translate(-50%, -50%);

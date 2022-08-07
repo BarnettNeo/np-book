@@ -23,6 +23,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-content: space-between;
+  padding: 30rpx 0 20rpx;
   z-index: 2;
 }
 .main .User .User_text view.data-v-a24749f6 {
@@ -32,6 +34,18 @@
   padding: 0 5px;
   border-radius: 5px;
   background-color: #00aaff;
+}
+.main .User .total-info.data-v-a24749f6 {
+  font-size: 30rpx;
+}
+.main .User .total-info view.data-v-a24749f6 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+.main .User .total-info view text.data-v-a24749f6 {
+  display: block;
 }
 .main .User .np-blockbutton.data-v-a24749f6 {
   margin: 20px auto ;

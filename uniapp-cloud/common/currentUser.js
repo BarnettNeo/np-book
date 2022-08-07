@@ -42,10 +42,13 @@ function getUserInfo(){
 }
 
 function updateUserInfo(userInfo){
-	cloudApi.call({
+	return cloudApi.call({
 		name:"updateUserProfile",
 		data:{
 			userInfo:userInfo
+		},
+		success: (res) => {
+			return res.result
 		}
 	})
 }

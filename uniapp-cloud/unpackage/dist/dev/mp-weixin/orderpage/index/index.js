@@ -98,7 +98,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 151))
+      return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 159))
     }
   }
 } catch (e) {
@@ -187,8 +187,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/cloudApi.js */ 27));
-var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfolow = function pubfolow() {__webpack_require__.e(/*! require.ensure | components/pubfolow */ "components/pubfolow").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfolow.vue */ 180));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var pubfolow = function pubfolow() {__webpack_require__.e(/*! require.ensure | components/pubfolow */ "components/pubfolow").then((function () {return resolve(__webpack_require__(/*! ../../components/pubfolow.vue */ 188));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
@@ -235,7 +249,7 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
           user_id: this.user_id },
 
         success: function success(res) {
-          // console.log('当前用户',res)
+          console.log('当前用户', res);
           _this.orderUser = res.result;
         } });
 
@@ -256,6 +270,23 @@ var _vuex = __webpack_require__(/*! vuex */ 19);function _interopRequireDefault(
 
 
 
+    },
+
+    // 关注
+    openFolow: function openFolow(id) {
+      console.log(id);
+      if (id == 'folow') {
+        uni.navigateTo({
+          url: "../orfolow/orfolow?id=" + this.orderUser.openid });
+
+        return;
+      }
+      if (id == 'fans') {
+        uni.navigateTo({
+          url: "../orfans/orfans?id=" + this.user_id });
+
+        return;
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

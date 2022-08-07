@@ -1,6 +1,6 @@
 <template>
 	<view class="heart-page" style="padding: 10px;">
-		<pubheart ref="pubheart"></pubheart>
+		<pubheart ref="pubheart" :tipsText="'暂无喜欢哦'"></pubheart>
 		
 	</view>
 

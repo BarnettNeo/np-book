@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
 		province:userInfo.province,
 		city:userInfo.city ,
 	});
-	const ownerinfo = await db.collection("users").where({
+	const ownerinfo = await db.collection("users").field({openid:false}).where({
 		openid:payload.openid
 	}).limit(1).get()
 	console.log(dbRes,ownerinfo)

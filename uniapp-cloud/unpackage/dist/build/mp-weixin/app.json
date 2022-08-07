@@ -14,7 +14,10 @@
     "pages/star/star",
     "orderpage/index/index",
     "orderpage/orperson/orperson",
-    "orderpage/orstar/orstar"
+    "orderpage/orstar/orstar",
+    "pages/fans/fans",
+    "orderpage/orfans/orfans",
+    "orderpage/orfolow/orfolow"
   ],
   "subPackages": [],
   "window": {
@@ -52,6 +55,5 @@
     }
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

@@ -179,7 +179,7 @@ var _cloudApi = _interopRequireDefault(__webpack_require__(/*! ../../common/clou
 //
 //
 //
-var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 134));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { pubpage: pubpage }, data: function data() {return { title: "新建书房", _id: null, name: "", address: "选取书房所在地址", longitude: "", latitude: "", textTitle: "", desc: "" };}, onLoad: function onLoad(options) {var _this = this;if (options.id) {this.title = "修改书房";this._id = options.id;_cloudApi.default.call({ name: "bookshelfs", data: {
+var pubpage = function pubpage() {__webpack_require__.e(/*! require.ensure | components/pubpage */ "components/pubpage").then((function () {return resolve(__webpack_require__(/*! ../../components/pubpage.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { pubpage: pubpage }, data: function data() {return { title: "新建书房", _id: null, name: "", address: "选取书房所在地址", longitude: "", latitude: "", textTitle: "", desc: "" };}, onLoad: function onLoad(options) {var _this = this;if (options.id) {this.title = "修改书房";this._id = options.id;_cloudApi.default.call({ name: "bookshelfs", data: {
           action: "get",
           _id: this._id },
 
